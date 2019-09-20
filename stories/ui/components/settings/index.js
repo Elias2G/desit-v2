@@ -1,23 +1,29 @@
 import {
   breakPoints,
-  color,
+  color, gradients, buttonColor,
   padding, margin,
-  font
+  font,
+  shadow
 } from './settings';
 
 import {
   setMargin, setPadding,
-  setColors,
-  setFontSize, setFontWeight
+  setColors, setBgColors, setGradientBg,
+  setFontSize, setFontWeight, setFontFamily,
+  setAlignGrid, setJustifyGrid,
+  disabled, setShadow
 } from './utils';
 
 
 export {
   breakPoints,
-  color,
+  color, gradients, buttonColor,
   padding, margin,
   font,
+  shadow,
   setMargin, setPadding,
-  setColors,
-  setFontSize, setFontWeight
+  setColors, setBgColors, setGradientBg,
+  setFontSize, setFontWeight, setFontFamily,
+  setAlignGrid, setJustifyGrid,
+  disabled, setShadow
 }

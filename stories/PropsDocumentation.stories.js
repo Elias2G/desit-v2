@@ -17,72 +17,72 @@ export default {
 };
 
 export const titles = () => (
-  <Container big>
+  <Container large>
     <Title variant="h1" size="medium">Element Type: TITLE</Title>
     <Row>
       <Column s={2}>
-        <Text size="big">prop name</Text>
+        <Text size="large">prop name</Text>
       </Column>
       <Column s={5}>
-        <Text size="big">value</Text>
+        <Text size="large">value</Text>
       </Column>
       <Column s={2}>
-        <Text size="big">type</Text>
+        <Text size="large">type</Text>
       </Column>
       <Column s={3}>
-        <Text size="big">description</Text>
+        <Text size="large">description</Text>
       </Column>
 
       <Column s={2}>
-        <Text size="small">variant</Text>
+        <Text nop size="small">variant</Text>
       </Column>
       <Column s={5}>
-        <Text size="small">h1, h2, h3, h4, h5, h6</Text>
+        <Text nop size="small">h1, h2, h3, h4, h5, h6</Text>
       </Column>
       <Column s={2}>
-        <Text size="small">string</Text>
+        <Text nop size="small">string</Text>
       </Column>
       <Column s={3}>
-        <Text size="small">DOM Element</Text>
+        <Text nop size="small">DOM Element</Text>
       </Column>
 
       <Column s={2}>
-        <Text size="small">size</Text>
+        <Text nop size="small">size</Text>
       </Column>
       <Column s={5}>
-        <Text size="small">large, medium, small</Text>
+        <Text nop size="small">large, medium, small</Text>
       </Column>
       <Column s={2}>
-        <Text size="small">string</Text>
+        <Text nop size="small">string</Text>
       </Column>
       <Column s={3}>
-        <Text size="small">font size</Text>
+        <Text nop size="small">font size</Text>
       </Column>
 
       <Column s={2}>
-        <Text size="small">color</Text>
+        <Text nop size="small">color</Text>
       </Column>
       <Column s={5}>
-        <Text size="small">primary, secondary, tertiary, accent, fontColorSecondary</Text>
+        <Text nop size="small">primary, secondary, tertiary, accent, fontColorSecondary</Text>
       </Column>
       <Column s={2}>
-        <Text size="small">string</Text>
+        <Text nop size="small">string</Text>
       </Column>
       <Column s={3}>
-        <Text size="small">color</Text>
+        <Text nop size="small">color</Text>
       </Column>
 
       <Column s={2}>
-        <Text size="small">align</Text>
+        <Text nop size="small">align</Text>
       </Column>
       <Column s={5}>
-        <Text size="small">center, left, right</Text>
+        <Text nop size="small">center, left, right</Text>
       </Column>
       <Column s={2}>
-        <Text size="small">string</Text>
+        <Text nop size="small">string</Text>
       </Column>
       <Column s={3}>
-        <Text size="small">text align</Text>
+        <Text nop size="small">text align</Text>
       </Column>
     </Row>
   </Container>

@@ -11,25 +11,58 @@ export const breakPoints = {
   md: '(min-width: 768px)',
   ml: '(min-width: 992px)',
   lg: '(min-width: 1200px)',
-  xl: '(min-width: 1600px)'
+  xl: '(min-width: 1600px)',
+  shorthands: [
+    's', 'ms', 'md', 'ml', 'lg', 'xl'
+  ],
 };
 
 // COLOR SETTINGS FOR ALL ELEMENTS
 
 export const color = {
   primary: '#20D1D1',
-  primaryLight: '#20D1D1',
-  primaryDark: '#20D1D1',
+  primaryLight: '#3AC8C8',
+  primaryDark: '#005484',
   secondary: '#C926D1',
-  secondaryLight: '#C926D1',
-  secondaryDark: '#C926D1',
+  secondaryLight: '#D923D3',
+  secondaryDark: '#7037C9',
   tertiary: '#3AC856',
-  tertiaryLight: '#3AC856',
-  tertiaryDark: '#3AC856',
+  tertiaryLight: '#23D9BB',
+  tertiaryDark: '#00846E',
   fontPrimary: 'black',
   fontSecondary: 'white',
   fontAccent: '#cd0000'
 };
+
+export const buttonColor = {
+  primary: color.primary,
+  primaryToogle: 'white',
+  secondary: color.secondary,
+  secondaryToogle: 'white',
+  tertiary: color.tertiary,
+  tertiaryToogle: 'white',
+  primaryDark: color.primaryDark,
+  primaryDarkToogle: 'white',
+  secondaryDark: color.secondaryDark,
+  secondaryDarkToogle: 'white',
+  tertiaryDark: color.tertiaryDark,
+  tertiaryDarkToogle: 'white',
+}
+
+export const gradients = {
+  primary: {
+    first: color.primaryLight,
+    second: color.primaryDark,
+  },
+  secondary: {
+    first: color.secondaryLight,
+    second: color.secondaryDark,
+  },
+  tertiary: {
+    first: color.tertiaryLight,
+    second: color.tertiaryDark,
+  },
+}
 
 
 // PADDING AND MARGIN SETTINGS FOR ALL ELEMENTS
@@ -45,6 +78,7 @@ export const padding = {
     h6: '10px 0px 10px 0px',
   },
   paragraph: '10px 0px 10px 0px',
+  button: '17px 33px 17px 33px'
 };
 
 export const margin = {
@@ -58,6 +92,7 @@ export const margin = {
     h6: '0',
   },
   paragraph: '0',
+  button: '0'
 };
 
 // TYPOGRAPHY STYLES settings
@@ -75,6 +110,7 @@ export const font = {
       h6: 'Raleway',
     },
     paragraph: 'Roboto',
+    button: 'Roboto',
   },
 
   weight: {
@@ -88,6 +124,7 @@ export const font = {
       h6: '500',
     },
     paragraph: '400',
+    button: '700',
   },
 
   size: {
@@ -133,5 +170,18 @@ export const font = {
       medium: 'calc(11pt + 0.25rem)',
       small: 'calc(9pt + 0.25rem)',
     },
+    button: {
+      large: 'calc(11pt + 0.25rem)',
+      medium: 'calc(9pt + 0.25rem)',
+      small: 'calc(6pt + 0.25rem)',
+    },
   }
 };
+
+
+// SIMPLE SINGLE STYLES LIKE BORDER AND BOX SHADOW
+export const shadow = {
+  large: 'box-shadow: 0 3px 20px rgba(0,0,0,0.16);',
+  medium: 'box-shadow: 0 3px 8px rgba(0,0,0,0.16);',
+  small: 'box-shadow: 0 3px 3px rgba(0,0,0,0.16);',
+}

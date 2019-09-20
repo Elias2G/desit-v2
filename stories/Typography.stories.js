@@ -58,10 +58,10 @@ export const titles = () => (
 
 export const text = () => (
   <Container>
-    <Text size="big">
+    <Text size="large">
       The expert team at Brightscout specializes in building innovative technology solutions for enterprises. Our products and services unleash new levels of productivity, enhance collaboration amongst team members, and streamline large-scale communication. We utilize a powerful mix of exquisite design and innovative technology to resolve the issues that hold back many companies today.
     </Text>
-    <Text>
+    <Text size="medium">
       The expert team at Brightscout specializes in building innovative technology solutions for enterprises. Our products and services unleash new levels of productivity, enhance collaboration amongst team members, and streamline large-scale communication. We utilize a powerful mix of exquisite design and innovative technology to resolve the issues that hold back many companies today.
     </Text>
     <Text size="small">
@@ -72,7 +72,7 @@ export const text = () => (
 
 export const textblocks = () => (
   <Container>
-    <SubTitle primary toUppercase>HOw TO APproaCH THE prOBLEM</SubTitle>
+    <SubTitle color="primary" toUppercase>HOw TO APproaCH THE prOBLEM</SubTitle>
     <Title variant="h1" size="large">The spectalce befor us was</Title>
     <Line primary left/>
     <Text size="small">
