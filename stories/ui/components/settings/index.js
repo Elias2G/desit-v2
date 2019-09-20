@@ -3,7 +3,8 @@ import {
   color, gradients, buttonColor,
   padding, margin,
   font,
-  shadow
+  shadow,
+  border
 } from './settings';
 
 import {
@@ -25,5 +26,6 @@ export {
   setColors, setBgColors, setGradientBg,
   setFontSize, setFontWeight, setFontFamily,
   setAlignGrid, setJustifyGrid,
-  disabled, setShadow
+  disabled, setShadow,
+  border
 }

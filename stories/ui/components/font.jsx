@@ -101,6 +101,7 @@ export const Text = (props) => (
 const Subtitle = styled.p`
   text-align: ${props => props.align || 'left'};
   line-height: 1;
+  letter-spacing: 2px;
   text-transform: ${props =>
     props.toUppercase ? "uppercase" : "inherit"
   };

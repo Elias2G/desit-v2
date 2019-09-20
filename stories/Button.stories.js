@@ -20,12 +20,12 @@ export const standart = () => (
     <Row>
       <Column s={3}>
         <Container>
-          <Button variant="primary" toUppercase size="small" disabled>jetzt durchstarten</Button>
+          <Button variant="primary" toUppercase size="small">jetzt durchstarten</Button>
         </Container>
       </Column>
       <Column s={3}>
         <Container>
-          <Button variant="primaryReversed" shadow="large" toUppercase size="small">jetzt durchstarten</Button>
+          <Button variant="primaryReversed" toUppercase size="small">jetzt durchstarten</Button>
         </Container>
       </Column>
       <Column s={3}>
@@ -47,7 +47,7 @@ export const standart = () => (
       </Column>
       <Column s={3}>
         <Container>
-          <Button disabled variant="primaryReversed" bgColor="secondary" toUppercase size="small">jetzt durchstarten</Button>
+          <Button variant="primaryReversed" bgColor="secondary" toUppercase size="small">jetzt durchstarten</Button>
         </Container>
       </Column>
       <Column s={3}>

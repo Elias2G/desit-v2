@@ -13,6 +13,7 @@ import {
 
 //Set REAPEATING STYLES FOR EVERY BUTTON ELEMENT
 const DefaultButtonStyle = styled.button`
+  letter-spacing: 1px;
   max-width: auto;
   cursor: pointer;
   transition: 200ms;

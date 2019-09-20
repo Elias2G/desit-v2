@@ -5,7 +5,6 @@
 
 
 
-
 // Padding & Margin Style funtions
 export const setMargin = (props, object) => {
   return props.nom ? "0" : props.margin ? props.margin : object;
@@ -17,10 +16,7 @@ export const setPadding = (props, object) => {
 
 // Font Style Funtions
 export const setFontSize = (props, object) => {
-  return props.size === "small" ? object.small :
-  props.size === "large" ? object.large :
-  props.size === "medium" ? object.medium :
-  "inherit"
+  return props.size ? object[props.size] : null;
 };
 
 export const setFontWeight = (props, object) => {
@@ -28,27 +24,16 @@ export const setFontWeight = (props, object) => {
 };
 
 export const setFontFamily = (props, object) => {
-  console.log(object);
   return props.family ? props.family : object;
 };
 
 // Color Funtions
 export const setColors = (props, object) => {
-  return props.color === "primary" ? object.primary :
-  props.color === "secondary" ? object.secondary :
-  props.color === "tertiary" ? object.tertiary :
-  props.color === "accent" ? object.accent :
-  props.color === "fontColorSecondary" ? object.fontSecondary :
-  object.fontPrimary
+  return props.color ? object[props.color] : null;
 };
 
 export const setBgColors = (props, object) => {
-  return props.color === "primary" ? object.primary :
-  props.color === "secondary" ? object.secondary :
-  props.color === "tertiary" ? object.tertiary :
-  props.color === "black" ? "black" :
-  props.color === "white" ? "white" :
-  "transparent"
+  return props.bgColor ? object[props.bgColor] : null;
 };
 
 export const setGradientBg = (props, object) => {

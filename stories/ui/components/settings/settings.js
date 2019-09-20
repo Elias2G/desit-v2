@@ -27,7 +27,7 @@ export const color = {
   secondaryLight: '#D923D3',
   secondaryDark: '#7037C9',
   tertiary: '#3AC856',
-  tertiaryLight: '#23D9BB',
+  tertiaryLight: '#51eb6f',
   tertiaryDark: '#00846E',
   fontPrimary: 'black',
   fontSecondary: 'white',
@@ -78,7 +78,8 @@ export const padding = {
     h6: '10px 0px 10px 0px',
   },
   paragraph: '10px 0px 10px 0px',
-  button: '17px 33px 17px 33px'
+  button: '17px 33px 17px 33px',
+  input: '15px 15px 15px 15px',
 };
 
 export const margin = {
@@ -92,7 +93,8 @@ export const margin = {
     h6: '0',
   },
   paragraph: '0',
-  button: '0'
+  button: '0',
+  input: '0'
 };
 
 // TYPOGRAPHY STYLES settings
@@ -111,6 +113,7 @@ export const font = {
     },
     paragraph: 'Roboto',
     button: 'Roboto',
+    input: 'Roboto'
   },
 
   weight: {
@@ -125,6 +128,7 @@ export const font = {
     },
     paragraph: '400',
     button: '700',
+    input: '400'
   },
 
   size: {
@@ -175,6 +179,11 @@ export const font = {
       medium: 'calc(9pt + 0.25rem)',
       small: 'calc(6pt + 0.25rem)',
     },
+    input: {
+      large: 'calc(11pt + 0.25rem)',
+      medium: 'calc(9pt + 0.25rem)',
+      small: 'calc(6pt + 0.25rem)',
+    },
   }
 };
 
@@ -184,4 +193,8 @@ export const shadow = {
   large: 'box-shadow: 0 3px 20px rgba(0,0,0,0.16);',
   medium: 'box-shadow: 0 3px 8px rgba(0,0,0,0.16);',
   small: 'box-shadow: 0 3px 3px rgba(0,0,0,0.16);',
+}
+
+export const border = {
+  default: '2px solid lightgrey',
 }

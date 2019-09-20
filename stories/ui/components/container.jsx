@@ -14,3 +14,13 @@ const Section = styled.section`
 export const Container = (props) => (
   <Section {...props}>{props.children}</Section>
 );
+
+
+const DoWhatYouWant = styled.div`
+  width: ${props => props.width || 'auto'};
+  background-color: ${props => setBgColors(props, color) };
+`;
+
+export const Box = (props) => (
+  <DoWhatYouWant {...props}>{props.children}</DoWhatYouWant>
+);
