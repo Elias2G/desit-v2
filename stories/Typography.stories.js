@@ -18,7 +18,7 @@ export default {
 export const titles = () => (
   <Container>
     <Container>
-      <Title color="secondary" size="large" variant='h1'>The spectacle before us was indeed sublime</Title>
+      <Title size="large" variant='h1'>The spectacle before us was indeed sublime</Title>
       <Title size="medium" variant='h1'>The spectacle before us was indeed sublime</Title>
       <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
     </Container>
@@ -78,5 +78,22 @@ export const textblocks = () => (
     <Text size="small">
       The expert team at Brightscout specializes in building innovative technology solutions for enterprises. Our products and services unleash new levels of productivity, enhance collaboration amongst team members, and streamline large-scale communication. We utilize a powerful mix of exquisite design and innovative technology to resolve the issues that hold back many companies today.
     </Text>
+  </Container>
+);
+
+export const coloredText = () => (
+  <Container>
+    <Title size="medium" variant="h3" color="primary">
+      This was indeed Sublime
+    </Title>
+    <Title size="medium" variant="h3" color="primaryDark">
+      This was indeed Sublime
+    </Title>
+    <Title size="medium" variant="h3" color="secondary">
+      This was indeed Sublime
+    </Title>
+    <Title size="medium" variant="h3" color="tertiaryLight">
+      This was indeed Sublime
+    </Title>
   </Container>
 );

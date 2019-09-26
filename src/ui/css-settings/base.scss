@@ -1,0 +1,32 @@
+// main: ../index.scss
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500|Roboto:400,700&display=swap');
+
+
+html {
+  box-sizing: border-box;
+  font-size: calc(4pt + 1vw);
+  @include respond-to($small) {
+    font-size: calc(5pt + 0.9vw);
+  }
+  @include respond-to($medium-small) {
+    font-size: calc(6pt + 0.8vw);
+  }
+  @include respond-to($medium) {
+    font-size: calc(7pt + 0.7vw);
+  }
+  @include respond-to($medium-large) {
+    font-size: calc(8pt + 0.6vw);
+  }
+  @include respond-to($large) {
+    font-size: calc(9pt + 0.5vw);
+  }
+  @include respond-to($extra-large) {
+    font-size: calc(10pt + 0.4vw);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

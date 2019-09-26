@@ -3,7 +3,9 @@ import { Line } from './components/line';
 import { Container, Box } from './components/container';
 import { Row, Column } from './components/layout';
 import { Button } from './components/buttons';
-import { Input } from './components/input';
+import { Input, Label } from './components/input';
+import { Accordion, Panel } from './components/accordion';
+import { Image } from './components/image';
 
 
 export {
@@ -12,5 +14,7 @@ export {
   Container, Box,
   Row, Column,
   Button,
-  Input
+  Input, Label,
+  Accordion, Panel,
+  Image
 };

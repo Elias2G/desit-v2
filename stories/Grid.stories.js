@@ -17,44 +17,44 @@ export default {
 };
 
 export const standart = () => (
-  <Container big color="primary">
-    <Row color="secondary">
-      <Column color="tertiary" s={4} ms={6}>
+  <Container big bgColor="primary">
+    <Row bgColor="secondary">
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4}>
-        <Container>
+      <Column bgColor="tertiary" s={4}>
+        <Container bgColor="white">
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4} ms={6}>
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={8}>
+      <Column bgColor="tertiary" s={8}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={2} ms={3}>
+      <Column bgColor="tertiary" s={2} ms={3}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={5}>
+      <Column bgColor="tertiary" s={5}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
@@ -66,44 +66,44 @@ export const standart = () => (
 
 
 export const alignUndJustifyCenter = () => (
-  <Container big color="primary">
-    <Row color="secondary" justify="center" align="center">
-      <Column color="tertiary" s={4} ms={6}>
+  <Container big bgColor="primary">
+    <Row bgColor="secondary" justify="center" align="center">
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4}>
+      <Column bgColor="tertiary" s={4}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4} ms={6}>
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={8}>
+      <Column bgColor="tertiary" s={8}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={2} ms={3}>
+      <Column bgColor="tertiary" s={2} ms={3}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={5}>
+      <Column bgColor="tertiary" s={5}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
@@ -114,44 +114,44 @@ export const alignUndJustifyCenter = () => (
 )
 
 export const justifyCenter = () => (
-  <Container big color="primary">
-    <Row color="secondary" justify="center">
-      <Column color="tertiary" s={4} ms={6}>
+  <Container big bgColor="primary">
+    <Row bgColor="secondary" justify="center">
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4}>
+      <Column bgColor="tertiary" s={4}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={4} ms={6}>
+      <Column bgColor="tertiary" s={4} ms={6}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={8}>
+      <Column bgColor="tertiary" s={8}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={2} ms={3}>
+      <Column bgColor="tertiary" s={2} ms={3}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>
         </Container>
       </Column>
 
-      <Column color="tertiary" s={5}>
+      <Column bgColor="tertiary" s={5}>
         <Container bgTertiary>
           <Title size="small" variant='h1'>The spectacle before us was indeed sublime</Title>
           <Text size="big" variant='h1'>The spectacle before us was indeed sublime</Text>

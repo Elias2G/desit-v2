@@ -2,7 +2,7 @@ import React from 'react';
 import 'normalize.css';
 import './ui/index.min.css';
 
-import { Input } from './ui';
+import { Input, Label } from './ui';
 
 import {
   Title, Text, SubTitle,
@@ -17,6 +17,15 @@ export default {
 
 export const input = () => (
   <Container big >
-    <Input size="medium" placeholder="test" type="text" bgColor="primaryDark" />
+    <Container>
+      <Input size="medium" placeholder="test" type="text" />
+    </Container>
+    <Container>
+      <Input size="medium" placeholder="test" type="text" bgColor="tertiaryDark" color="fontSecondary" borderColor="tertiaryDark"/>
+    </Container>
+    <Container>
+      <Label size="medium">et</Label>
+      <Input size="medium" placeholder="test" type="text" bgColor="tertiaryDark" color="fontSecondary" borderColor="tertiaryDark"/>
+    </Container>
   </Container>
 )

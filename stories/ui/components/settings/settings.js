@@ -23,12 +23,15 @@ export const color = {
   primary: '#20D1D1',
   primaryLight: '#3AC8C8',
   primaryDark: '#005484',
+
   secondary: '#C926D1',
   secondaryLight: '#D923D3',
   secondaryDark: '#7037C9',
+
   tertiary: '#3AC856',
   tertiaryLight: '#51eb6f',
   tertiaryDark: '#00846E',
+
   fontPrimary: 'black',
   fontSecondary: 'white',
   fontAccent: '#cd0000'
@@ -80,6 +83,8 @@ export const padding = {
   paragraph: '10px 0px 10px 0px',
   button: '17px 33px 17px 33px',
   input: '15px 15px 15px 15px',
+  accordion: '15px',
+  panel: '15px',
 };
 
 export const margin = {
@@ -94,7 +99,9 @@ export const margin = {
   },
   paragraph: '0',
   button: '0',
-  input: '0'
+  input: '0',
+  accordion: '0',
+  panel: '0px 0px 15px 0px',
 };
 
 // TYPOGRAPHY STYLES settings
@@ -113,7 +120,9 @@ export const font = {
     },
     paragraph: 'Roboto',
     button: 'Roboto',
-    input: 'Roboto'
+    input: 'Roboto',
+    accordion: 'Roboto',
+    panel: 'inherit',
   },
 
   weight: {
@@ -128,7 +137,9 @@ export const font = {
     },
     paragraph: '400',
     button: '700',
-    input: '400'
+    input: '400',
+    accordion: '400',
+    panel: 'inherit',
   },
 
   size: {
@@ -184,15 +195,25 @@ export const font = {
       medium: 'calc(9pt + 0.25rem)',
       small: 'calc(6pt + 0.25rem)',
     },
+    accordion: {
+      large: 'calc(13pt + 0.25rem)',
+      medium: 'calc(11pt + 0.25rem)',
+      small: 'calc(9pt + 0.25rem)',
+    },
+    panel: {
+      large: 'inherit',
+      medium: 'inherit',
+      small: 'inherit',
+    },
   }
 };
 
 
 // SIMPLE SINGLE STYLES LIKE BORDER AND BOX SHADOW
 export const shadow = {
-  large: 'box-shadow: 0 3px 20px rgba(0,0,0,0.16);',
-  medium: 'box-shadow: 0 3px 8px rgba(0,0,0,0.16);',
-  small: 'box-shadow: 0 3px 3px rgba(0,0,0,0.16);',
+  large: 'box-shadow: 8px 8px 50px rgba(0,0,0,0.22);',
+  medium: 'box-shadow: 3px 7px 25px rgba(0,0,0,0.22);',
+  small: 'box-shadow: 0 3px 6px rgba(0,0,0,0.22);',
 }
 
 export const border = {

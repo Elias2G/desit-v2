@@ -85,3 +85,27 @@ export const standart = () => (
     </Row>
   </Container>
 )
+
+export const withShadow = () => {
+  return (
+    <Container big>
+      <Row>
+        <Column s={3}>
+          <Container>
+            <Button variant="primary" toUppercase size="small" shadow="large">jetzt durchstarten</Button>
+          </Container>
+        </Column>
+        <Column s={3}>
+          <Container>
+            <Button variant="secondary" toUppercase size="small" shadow="medium" bgColor="secondary">jetzt durchstarten</Button>
+          </Container>
+        </Column>
+        <Column s={3}>
+          <Container>
+            <Button variant="gradient" toUppercase size="small" shadow="small" withGradient="tertiary">jetzt durchstarten</Button>
+          </Container>
+        </Column>
+      </Row>
+    </Container>
+  );
+}

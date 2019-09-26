@@ -1,0 +1,48 @@
+@import "css-settings/mixins";
+@import "css-settings/media-querys";
+// @import "css-settings/variables";
+//
+@import "css-settings/base";
+// @import "css-settings/typography";
+// @import "css-settings/colors";
+//
+// @import "layout/flexbox";
+// @import "layout/grid";
+// @import "layout/basic-layouts";
+//
+// @import "singleStyles/shadows";
+// @import "singleStyles/scrollable";
+// @import "singleStyles/border";
+//
+// @import "components/list";
+// @import "components/btn";
+// @import "components/card";
+// @import "components/form";
+// @import "components/nav";
+//
+// @import "navbar/nav1";
+//
+// @import "animations/index";
+// @import "animations/keyframes";
+
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.singlePostStyle {
+  p {
+    font-size: 14pt;
+    font-family: 'Roboto';
+  }
+  h1 {
+    font-size: 38pt;
+    font-family: 'Raleway';
+  }
+}
