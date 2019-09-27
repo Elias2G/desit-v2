@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
 
-import { Container, Row, Column, Title, Text, Image, Tag } from '../../../ui';
+import { Container, Row, Column, Title, Text, Image, Tag, SubTitle } from '../../../ui';
 import { breakPoints } from '../../../ui/components/settings';
 
 const Card = styled.div`
@@ -25,7 +25,8 @@ const Card = styled.div`
   }
 `;
 
-export const BlogListCard = React.memo((props) => {
+export const BlogTopCard = React.memo((props) => {
+
   // renders the tags with different colors based on the string name
   const renderTags = (data) => {
     return data.map((data, i) => {
@@ -44,16 +45,19 @@ export const BlogListCard = React.memo((props) => {
   }
 
   return (
-    <Card full nop>
-      <NavLink to={`/blog/${props.data.title_slug}`}>
+    <NavLink to={`/blog/${props.data.title_slug}`}>
+      <Card full nop>
         <Row>
-          <Column md={4}>
+          <Column s={12} md={6}>
+            <div style={{position: 'absolute', padding: '10px 20px'}}>
+              <SubTitle style={{position: 'relative'}} color="primary" size="large" >TOP-BEITRAG</SubTitle>
+            </div>
             <Image r="8px" src={'http://127.0.0.1/cockpit-desit/storage/uploads' + props.data.image.path} />
           </Column>
-          <Column md={8}>
-            <Text size="medium" weight="700">
+          <Column s={12} md={6}>
+            <Title variant="h3" size="medium">
               {props.data.title}
-            </Text>
+            </Title>
             <Text size="small">{props.data._by}</Text>
             <Text size="small">
               {renderTags(props.data.tags)}
@@ -64,33 +68,7 @@ export const BlogListCard = React.memo((props) => {
             </div>
           </Column>
         </Row>
-      </NavLink>
-    </Card>
-  )
-});
-
-export const SkelletonBlogListCard = React.memo((props) => {
-  return (
-    <Card style={{ background: '#fafafa'}} full nop>
-      <Row>
-        <Column md={4}>
-          <Image style={{border: '0', background: 'lightgrey', outline: '0'}} r="8px"  />
-        </Column>
-        <Column md={8}>
-          <Text style={{background: 'lightgrey', width: '70%', margin: '15px 0'}}></Text>
-          <Text style={{background: '#ebebeb', width: '20%', margin: '15px 0'}} size="small"></Text>
-          <Text size="small" style={{width: '100%'}}>
-            <Tag style={{background: 'lightgrey', width: '50px'}} color="fontSecondary"></Tag>
-            <Tag style={{background: 'lightgrey', width: '50px'}} color="fontSecondary"></Tag>
-          </Text>
-          <Text style={{background: '#ebebeb', width: '85%', margin: '15px 0 2px 0'}}></Text>
-          <Text style={{background: '#ebebeb', width: '90%', margin: '2px 0'}}></Text>
-          <Text style={{background: '#ebebeb', width: '30%', margin: '2px 0'}}></Text>
-          <div style={{width: "100%", bottom: '0', marginTop: "auto", pointerEvents: 'none'}}>
-            <Text size="small" style={{backgroundColor: '#ebebeb', width: '10%', margin: '15px 0'}}></Text>
-          </div>
-        </Column>
-      </Row>
-    </Card>
+      </Card>
+    </NavLink>
   )
 });

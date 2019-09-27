@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-import { Box, Container, Title, Line, Text, Button, Row, Column, Image } from '../../ui';
+import { Box, Container, Title, Line, Text, Button, Row, Column, Image, Divider, SubTitle } from '../../ui';
 
 import { BigTextBlock, ImageBlock, MediumTextBlock, LittleTextBlock } from '../../assets/components/textblocks';
 import { HeaderHalf } from '../../assets/components/header';
 
 import BlogList from './blogList';
+import BlogLatest from './blogLatest';
+import BlogTop from './blogTop';
 
 class Blog extends Component {
   render() {
@@ -24,11 +26,31 @@ class Blog extends Component {
           </Row>
         </HeaderHalf>
 
+        {/* Top Beitrag Bereich */}
+        <Container big>
+          <Row>
+            <BlogTop />
+          </Row>
+          <Divider />
+        </Container>
+
+        <Container big>
+          <Row>
+            <Column s={12}>
+              <SubTitle color="primary" size="small" >NEU</SubTitle>
+              <Title variant="h4" size="medium">Unsere letzten Beiträge</Title>
+            </Column>
+          </Row>
+          <Row>
+            <BlogLatest />
+          </Row>
+          <Divider />
+        </Container>
+
         <Container big>
           <Row>
             <BlogList />
           </Row>
-
         </Container>
 
 

@@ -1,22 +1,24 @@
 import { Title, Text, SubTitle } from './components/font';
-import { Line } from './components/line';
+import { Line, Divider } from './components/line';
 import { Container, Box } from './components/container';
 import { Row, Column } from './components/layout';
 import { Button } from './components/buttons';
 import { Input, Label } from './components/input';
 import { Accordion, Panel } from './components/accordion';
 import { Image } from './components/image';
-import { Tag } from './components/tags';
+import { Tag, Icon } from './components/tags';
+import { Field, Selection, FormTag, FormIcon, Option } from './components/form';
 
 
 export {
   Title, Text, SubTitle,
-  Line,
+  Line, Divider,
   Container, Box,
   Row, Column,
   Button,
   Input, Label,
   Accordion, Panel,
   Image,
-  Tag
+  Tag, Icon,
+  Field, Selection, FormTag, FormIcon, Option
 };

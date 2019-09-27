@@ -7,26 +7,40 @@ import { FETCH_BLOGPOSTS_LIST, LOAD_MORE_BLOGPOSTS_LIST, SET_BLOGPOSTS_LIST_CONF
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { BlogListCard } from '../../assets/components/blog';
+import { BlogListCard, SkelletonBlogListCard } from '../../assets/components/blog';
+import { BlogLatest } from '../../assets/components/blog';
+
+import FilterBar from '../../assets/components/filterBar';
+
 
 class BlogList extends Component {
-
-
   componentDidMount() {
     if(this.props.blogPosts === null) {
       this.props.simpleFetch(FETCH_BLOGPOSTS_LIST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, this.props.config);
     }
   }
 
+  filter = (data) => {
+    console.log(data);
+
+  }
+
   renderBlogList = (data) => {
+    //HAVE TO ADD THE FILTER FUNCTION
     if(this.props.blogPosts !== null) {
-      console.log(data);
       return data.map((data, i) => {
         return(
           <BlogListCard
             key={i}
             data={data}
           />
+        )
+      })
+    } else {
+      let elements = [1,2,3,4,5];
+      return elements.map((data, i) => {
+        return(
+          <SkelletonBlogListCard elements={5} />
         )
       })
     }
@@ -43,7 +57,7 @@ class BlogList extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           filter: { published: true },
-          limit: parsedBody.limit + 10,
+          limit: parsedBody.limit + 5,
           skip: 0,
           populate: 1,
         })
@@ -58,11 +72,15 @@ class BlogList extends Component {
   render() {
     return (
       <>
+        <Column s={12}>
+          <FilterBar data={this.props.filter} onChange={this.filter} />
+        </Column>
         <Column nop md={9}>
           {this.renderBlogList(this.props.blogPosts)}
         </Column>
+
         <Column nop md={3}>
-          <div>smth</div>
+          <div style={{height: '100%', width: '100%', background: '#ebebeb'}}></div>
         </Column>
         <Column s={12}>
           {
@@ -92,7 +110,8 @@ const mapStateToProps = (data) => {
   return {
     blogPosts: data.blog.blogList,
     total: data.blog.total,
-    config: data.blog.loadFromBlogList
+    config: data.blog.loadFromBlogList,
+    filter: data.blog.filterBar
   }
 }
 

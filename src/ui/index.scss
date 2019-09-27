@@ -37,12 +37,48 @@ a {
 }
 
 .singlePostStyle {
+  img {
+    width: 100%;
+  }
   p {
-    font-size: 14pt;
+    margin: 5px 0px;
+    font-size: calc(9pt + 0.25rem);
     font-family: 'Roboto';
   }
   h1 {
-    font-size: 38pt;
+    margin: 15px 0px;
+    font-size: calc(13pt + 1rem);
     font-family: 'Raleway';
+    font-weight: 500;
+  }
+  h2 {
+    margin: 15px 0px;
+    font-size: calc(12pt + 1rem);
+    font-family: 'Raleway';
+    font-weight: 500;
+  }
+  h3 {
+    margin: 15px 0px;
+    font-size: calc(11pt + 1rem);
+    font-family: 'Raleway';
+    font-weight: 500;
+  }
+  h4 {
+    margin: 15px 0px;
+    font-size: calc(10pt + 1rem);
+    font-family: 'Raleway';
+    font-weight: 500;
+  }
+  h5 {
+    margin: 15px 0px;
+    font-size: calc(9pt + 1rem);
+    font-family: 'Raleway';
+    font-weight: 500;
+  }
+  h6 {
+    margin: 15px 0px;
+    font-size: calc(8pt + 1rem);
+    font-family: 'Raleway';
+    font-weight: 500;
   }
 }

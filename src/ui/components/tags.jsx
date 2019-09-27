@@ -12,6 +12,15 @@ const MyTags = styled.span`
   margin-right: 5px;
 `;
 
+const TagIcon = styled.span`
+  padding: 5px 0px 5px 10px;
+  display: inline-block;
+  cursor: pointer;
+`;
+
+export const Icon = (props) => (
+  <TagIcon {...props}>{props.children}</TagIcon>
+);
 
 export const Tag = (props) => (
   <MyTags {...props}>{props.children}</MyTags>

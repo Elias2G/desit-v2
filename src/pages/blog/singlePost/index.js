@@ -6,9 +6,11 @@ import { ACTIVE_VIEW_POST } from '../../../redux/actions/type';
 
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../../config';
 
-import { Container, Row, Button, Column, Title, Text, Image, Tag } from '../../../ui';
+import { Container, Row, Button, Column, Title, Text, Image, Tag, Divider } from '../../../ui';
+import { FbShare } from '../../../assets/components/share';
 import { BlogListCard } from '../../../assets/components/blog';
 import { HeaderHalf } from '../../../assets/components/header';
+import { Head } from './styled';
 
 class SinglePost extends Component {
   componentDidMount() {
@@ -45,7 +47,7 @@ class SinglePost extends Component {
           <Text size="small">
             {this.renderTags(data.tags)}
           </Text>
-          <Container nop style={{margin: '50px 0'}} >
+          <Container nop style={{margin: '10px 0'}} >
             <div className="singlePostStyle" dangerouslySetInnerHTML={{__html: data.content}} />
           </Container>
         </>
@@ -56,18 +58,35 @@ class SinglePost extends Component {
   render() {
     return (
       <>
-      <Container full big nop>
-        <Image src="https://via.placeholder.com/1920x400" />
-        <Container big>
+      <Container full nop>
+          <Head image={ this.props.post !== null ? 'http://127.0.0.1/cockpit-desit/storage/uploads' + this.props.post.entries[0].image.path : null } />
+
+        <Container big style={{paddingTop: '50px'}}>
           <Row>
-            <Column md={9}>
+            <Column ml={9}>
                 {this.renderSinglePost(this.props.post)}
             </Column>
-            <Column md={3}>
+            <Column ml={3}>
 
+            </Column>
+            <Column s={12}>
+              <Divider />
+              <Row>
+                <Column s={12} md={6} nop>
+                  <Text size="medium" weight="700">zurück zur vorherigen Seite</Text>
+                </Column>
+                <Column s={12} md={6} nop>
+                  <Row>
+                    <FbShare />
+                    <FbShare />
+                    <FbShare />
+                  </Row>
+                </Column>
+              </Row>
             </Column>
           </Row>
         </Container>
+
       </Container>
       </>
     );

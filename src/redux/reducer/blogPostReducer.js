@@ -1,4 +1,10 @@
-import { FETCH_BLOGPOSTS_LIST, SET_BLOGPOSTS_LIST_CONFIG, ACTIVE_VIEW_POST} from '../actions/type';
+import {
+  FETCH_BLOGPOSTS_LIST,
+  SET_BLOGPOSTS_LIST_CONFIG,
+  ACTIVE_VIEW_POST,
+  FETCH_BLOGPOSTS_LATEST,
+  FETCH_BLOGPOST_TOP
+} from '../actions/type';
 
 const initState = {
   topPost: null,
@@ -10,12 +16,25 @@ const initState = {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       filter: { published: true },
-      limit: 10,
+      limit: 5,
       skip: 0,
       populate: 1, // resolve linked collection items
+      sort: {_created: -1}
     })
   },
-  thisPost: null
+  thisPost: null,
+  filterBar: {
+    search: {
+      value: null,
+    },
+    category: {
+      value: ['Alle'],
+      select: ['Alle', 'Design', 'Wissenswert', 'Technologie']
+    },
+    search: {
+      value: null,
+    }
+  }
 }
 
 export default function(state = initState, action) {
@@ -26,6 +45,18 @@ export default function(state = initState, action) {
       return {...state, loadFromBlogList: action.data }
     case ACTIVE_VIEW_POST:
       return {...state, thisPost: action.data }
+    case FETCH_BLOGPOSTS_LATEST:
+      return {
+        ...state,
+      latest: action.data.entries,
+      total: action.data.total
+    }
+    case FETCH_BLOGPOST_TOP:
+      return {
+        ...state,
+      topPost: action.data.entries,
+      total: action.data.total
+    }
     default:
       return state;
   }

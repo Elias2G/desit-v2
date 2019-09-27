@@ -17,3 +17,17 @@ const Hr = styled.hr`
 export const Line = (props) => (
   <Hr {...props} />
 );
+
+const Divide = styled.hr`
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background-color: #ebebeb;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+`;
+
+export const Divider = (props) => (
+  <Divide {...props} />
+);
