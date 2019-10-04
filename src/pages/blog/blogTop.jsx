@@ -7,7 +7,7 @@ import { FETCH_BLOGPOST_TOP, SET_BLOGPOSTS_LIST_CONFIG, FETCH_BLOGPOSTS_LIST } f
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { BlogTopCard } from '../../assets/components/blog';
+import { BlogTopCard, SkelletonBlogTopCard } from '../../assets/components/blog';
 
 class BlogTop extends Component {
 
@@ -28,16 +28,22 @@ class BlogTop extends Component {
   }
 
   renderBlogList = (data) => {
-    if(this.props.topPost !== null) {
-      console.log(data);
+    if(this.props.topPost !== null && this.props.user !== null) {
       return data.map((data, i) => {
         return(
-          <Column nop s={12}>
+          <Column key={i} nop s={12}>
             <BlogTopCard
-              key={i}
+              user={this.props.user}
               data={data}
             />
           </Column>
+        )
+      })
+    } else {
+      let elements = [1];
+      return elements.map((data, i) => {
+        return(
+          <SkelletonBlogTopCard key={i} elements={1} />
         )
       })
     }
@@ -57,7 +63,8 @@ class BlogTop extends Component {
 const mapStateToProps = (data) => {
   return {
     topPost: data.blog.topPost,
-    config: data.blog.loadFromBlogList
+    config: data.blog.loadFromBlogList,
+    user: data.user
   }
 }
 

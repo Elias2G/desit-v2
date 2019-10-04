@@ -1,2 +1,7 @@
 import { FbShare } from './fbShare';
-export { FbShare };
+import { SharePopUp } from './sharePopUp';
+
+export {
+  FbShare,
+  SharePopUp
+};

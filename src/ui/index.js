@@ -7,7 +7,7 @@ import { Input, Label } from './components/input';
 import { Accordion, Panel } from './components/accordion';
 import { Image } from './components/image';
 import { Tag, Icon } from './components/tags';
-import { Field, Selection, FormTag, FormIcon, Option } from './components/form';
+import { SelectField, Option } from './components/form';
 
 
 export {
@@ -20,5 +20,5 @@ export {
   Accordion, Panel,
   Image,
   Tag, Icon,
-  Field, Selection, FormTag, FormIcon, Option
+  SelectField, Option
 };

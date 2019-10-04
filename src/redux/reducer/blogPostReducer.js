@@ -1,6 +1,7 @@
 import {
   FETCH_BLOGPOSTS_LIST,
   SET_BLOGPOSTS_LIST_CONFIG,
+  SET_BLOGPOSTS_LIST_FILTER,
   ACTIVE_VIEW_POST,
   FETCH_BLOGPOSTS_LATEST,
   FETCH_BLOGPOST_TOP
@@ -28,12 +29,13 @@ const initState = {
       value: null,
     },
     category: {
-      value: ['Alle'],
-      select: ['Alle', 'Design', 'Wissenswert', 'Technologie']
-    },
-    search: {
       value: null,
-    }
+      select: ['Design', 'Wissenswertes', 'Technologie']
+    },
+    autor: {
+      value: null,
+      select: ['5d8c4be238383844600001f0', 'not working']
+    },
   }
 }
 
@@ -56,6 +58,21 @@ export default function(state = initState, action) {
         ...state,
       topPost: action.data.entries,
       total: action.data.total
+    }
+    case SET_BLOGPOSTS_LIST_FILTER:
+      return {
+        ...state,
+      filterBar: {
+        ...state.filterBar,
+        category: {
+          ...state.filterBar.category,
+          value: action.data.type === "category" && action.data.value,
+        },
+        autor: {
+          ...state.filterBar.autor,
+          value: action.data.type === "autor" && action.data.value,
+        }
+      }
     }
     default:
       return state;

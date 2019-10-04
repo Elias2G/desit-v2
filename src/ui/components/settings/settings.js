@@ -32,8 +32,8 @@ export const color = {
   tertiaryLight: '#51eb6f',
   tertiaryDark: '#00846E',
 
-  fontPrimary: 'black',
-  fontSecondary: 'white',
+  fontPrimary: '#2b2b2b',
+  fontSecondary: '#fafafa',
   fontAccent: '#cd0000'
 };
 
@@ -181,9 +181,10 @@ export const font = {
       },
     },
     paragraph: {
-      large: 'calc(13pt + 0.25rem)',
-      medium: 'calc(11pt + 0.25rem)',
-      small: 'calc(9pt + 0.25rem)',
+      large: 'calc(15pt + 0.0rem)',
+      medium: 'calc(13pt + 0.10rem)',
+      small: 'calc(10pt + 0.10rem)',
+      xsmall: 'calc(8pt + 0.10rem)',
     },
     button: {
       large: 'calc(11pt + 0.25rem)',

@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { simpleFetch } from '../../redux/actions';
+import { GET_USER } from '../../redux/actions/type';
+
+import { ROOT_URL, GET_USER_API, masterkey } from '../../config';
 
 import { Box, Container, Title, Line, Text, Button, Row, Column, Image, Divider, SubTitle } from '../../ui';
 
@@ -10,9 +16,21 @@ import BlogLatest from './blogLatest';
 import BlogTop from './blogTop';
 
 class Blog extends Component {
+  componentDidMount() {
+
+    setTimeout(() => {
+      if(this.props.history.action === "PUSH") {
+        window.scrollTo({top: 0})
+      }
+    },250);
+
+    if(this.props.user === null) {
+      this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
+    }
+  }
   render() {
     return (
-      <Container full nop>
+      <Container full nop style={{backgroundColor: 'white'}}>
         <HeaderHalf>
           <Row>
             <Column s={12}>
@@ -49,6 +67,12 @@ class Blog extends Component {
 
         <Container big>
           <Row>
+            <Column s={12}>
+              <SubTitle color="primary" size="small" >ALLE</SubTitle>
+              <Title variant="h4" size="medium">Alle Beiträge</Title>
+            </Column>
+          </Row>
+          <Row>
             <BlogList />
           </Row>
         </Container>
@@ -59,4 +83,13 @@ class Blog extends Component {
   }
 }
 
-export default Blog;
+const mapStateToProps = (data) => {
+  return {
+    user: data.user.userList,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { simpleFetch }
+)(Blog)

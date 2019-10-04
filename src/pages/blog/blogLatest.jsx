@@ -7,11 +7,9 @@ import { FETCH_BLOGPOSTS_LATEST, SET_BLOGPOSTS_LIST_CONFIG, FETCH_BLOGPOSTS_LIST
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { BlogLatestCard } from '../../assets/components/blog';
+import { BlogCard, SkelletonBlogCard } from '../../assets/components/blog';
 
 class BlogLatest extends Component {
-
-
   componentDidMount() {
     if(this.props.blogPostsLatest === null) {
       this.props.simpleFetch(FETCH_BLOGPOSTS_LATEST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, {
@@ -29,15 +27,23 @@ class BlogLatest extends Component {
   }
 
   renderBlogList = (data) => {
-    if(this.props.blogPostsLatest !== null) {
-      console.log(data);
+    if(this.props.blogPostsLatest !== null && this.props.user !== null) {
       return data.map((data, i) => {
         return(
-          <Column nop s={12} ml={4}>
-            <BlogLatestCard
-              key={i}
+          <Column key={i} nop s={12} ml={4}>
+            <BlogCard
+              user={this.props.user}
               data={data}
             />
+          </Column>
+        )
+      })
+    } else {
+      let elements = [1,2,3];
+      return elements.map((data, i) => {
+        return(
+          <Column key={i} nop s={12} ml={4}>
+            <SkelletonBlogCard elements={3} />
           </Column>
         )
       })
@@ -59,7 +65,8 @@ const mapStateToProps = (data) => {
   return {
     blogPosts: data.blog.blogList,
     blogPostsLatest: data.blog.latest,
-    config: data.blog.loadFromBlogList
+    config: data.blog.loadFromBlogList,
+    user: data.user
   }
 }
 

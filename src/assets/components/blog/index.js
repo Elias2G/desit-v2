@@ -1,8 +1,6 @@
-import { BlogListCard, SkelletonBlogListCard } from './blogListCard';
-import { BlogLatestCard } from './blogLatestCard';
-import { BlogTopCard } from './blogTopCard';
+import { BlogCard, SkelletonBlogCard } from './blogCard';
+import { BlogTopCard, SkelletonBlogTopCard } from './blogTopCard';
 export {
-  BlogListCard, SkelletonBlogListCard,
-  BlogLatestCard,
-  BlogTopCard
+  BlogCard, SkelletonBlogCard,
+  BlogTopCard, SkelletonBlogTopCard
 };

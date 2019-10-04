@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main } from './router';
+import Main from './router';
 import Navigation from './router/navigation';
 import Footer from './router/footer';
 
@@ -8,7 +8,6 @@ function App() {
     <>
       <Navigation />
       <Main />
-      <Footer />
     </>
   );
 }

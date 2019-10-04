@@ -29,7 +29,7 @@ export const setFontFamily = (props, object) => {
 
 // Color Funtions
 export const setColors = (props, object) => {
-  return props.color ? object[props.color] : null;
+  return props.color ? object[props.color] : '#2b2b2b';
 };
 
 export const setBgColors = (props, object) => {

@@ -8,7 +8,7 @@ const Section = styled.section`
   padding: 15px;
   margin: ${props => props.nom ? 0 : '0 auto'}
   padding: ${props => props.nop ? 0 : '15px'}
-  max-width: ${props => props.full ? 'auto' : props.big ? "1600px" : props.middleBig ? "860px" : props.middle ? "680px" : props.middleSmall ? "500px" : props.small ? "320px" : "1200px" };
+  max-width: ${props => props.full ? 'auto' : props.big ? "1400px" : props.middleBig ? "860px" : props.middle ? "680px" : props.middleSmall ? "500px" : props.small ? "320px" : "1200px" };
   background-color: ${props => setBgColors(props, color) };
   border: ${props => setBorder(props, border)};
 `;

@@ -5,7 +5,7 @@ import { color, setBgColors, setMargin, setPadding, border, setBorder } from './
 
 const MyImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: ${props => props.maxWidth || 'auto'};
   max-height: ${props => props.maxHeight || 'auto'};
   border: ${props => setBorder(props, border)};
@@ -13,5 +13,5 @@ const MyImage = styled.img`
 `;
 
 export const Image = (props) => (
-  <MyImage {...props}>{props.children}</MyImage>
+  <MyImage src={props.src} {...props}>{props.children}</MyImage>
 );

@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 
-import { Box, Container, Title, Line, Text, Button, Row, Column, Image } from '../../ui';
+import { Box, Container, Title, Line, Text, Button, Row, Column, Image, SubTitle, Divider } from '../../ui';
 
 import { BigTextBlock, ImageBlock, MediumTextBlock, LittleTextBlock } from '../../assets/components/textblocks';
 import { Header } from '../../assets/components/header';
 
+import BlogLatest from '../blog/blogLatest';
+
 class LandingPage extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      if(this.props.history.action === "PUSH") {
+        window.scrollTo({top: 0})
+      }
+    },300);
+  }
   render() {
     return (
-      <Container full nop>
+      <>
+      <Container full nop style={{background: 'white'}}>
         <Header>
           <Row>
             <Column s={12}>
@@ -94,7 +104,24 @@ class LandingPage extends Component {
              </Column>
            </Row>
          </Container>
+
+         <Container big>
+           <Row>
+             <Column s={12}>
+               <SubTitle color="primary" size="small" >NEU</SubTitle>
+               <Title variant="h4" size="medium">Unsere letzten Beiträge</Title>
+             </Column>
+           </Row>
+           <Row>
+             <BlogLatest />
+           </Row>
+           <Row justify="center" style={{marginBottom: '50px'}}>
+             <Button shadow="medium" toUppercase variant="gradient" withGradient="secondary">alle Beiträge ansehen</Button>
+           </Row>
+         </Container>
+
       </Container>
+      </>
     );
   }
 }
