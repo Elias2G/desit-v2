@@ -7,9 +7,11 @@ import { FETCH_PORTFOLIO_LIST, LOAD_MORE_PORTFOLIO_LIST, SET_PORTFOLIO_LIST_CONF
 
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
-import { Container, Row, Button, Column } from '../../ui';
+import { Container, Row, Button, Column, Text } from '../../ui';
 import { PortfolioListCard, SkelletonPortfolioListCard } from '../../assets/components/portfolio';
 import { PortfolioLatest } from '../../assets/components/portfolio';
+
+import { filterData } from '../../assets/utils/filterFunction';
 
 import { FilterBarContainer, Select } from '../../assets/components/filterBar';
 
@@ -21,24 +23,31 @@ class PortfolioList extends Component {
     }
   }
 
-  filter = (data, value) => {
+  filter = (value, type) => {
     let body = this.props.config.body;
     let parsedBody = JSON.parse(body);
+
+    const data = filterData(parsedBody, value, type);
 
     let newConfig = {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        filter: value !== null ? data : {published: true},
+        filter: data,
         limit: 5,
         skip: 0,
         populate: 1,
         sort: {_created: -1}
       })
     }
+    // create new filter object
+    let newFilter = {
+      type: type,
+      value: value
+    }
 
     this.props.determine(SET_PORTFOLIO_LIST_CONFIG, newConfig)
-    this.props.determine(SET_PORTFOLIO_LIST_FILTER, value)
+    this.props.determine(SET_PORTFOLIO_LIST_FILTER, newFilter)
     this.props.simpleFetch(FETCH_PORTFOLIO_LIST, `${ROOT_URL + GET_COLLECTION}/portfolio?token=${masterkey}`, newConfig);
   }
 
@@ -97,8 +106,15 @@ class PortfolioList extends Component {
     return (
       <>
         <Column s={12}>
-          <FilterBarContainer data={this.props.filter} onChange={this.filter} >
-
+          <FilterBarContainer filter={this.filter}>
+            <div>
+              <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Kategorie</Text>
+              <Select type="tags" options={this.props.filter.category.select} />
+            </div>
+            <div>
+              <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Autor</Text>
+              <Select type="_by" options={this.props.filter.autor.select} />
+            </div>
           </FilterBarContainer>
         </Column>
 

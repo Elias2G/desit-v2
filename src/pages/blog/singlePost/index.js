@@ -35,27 +35,35 @@ class SinglePost extends Component {
           this.props.determine(ACTIVE_VIEW_POST, {entries: [blogList[i]]})
           return;
         }
+        if(i === blogList.length - 1) {
+          this.fetchSingleData()
+        }
       }
-    } else {
-      let newConfig = {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          filter: { published: true, title_slug: this.props.match.params.id },
-          limit: 1,
-          skip: 0,
-          populate: 1,
-        })
-      }
-      this.props.simpleFetch(ACTIVE_VIEW_POST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, newConfig);
-      if(this.props.user.userList === null) {
-        this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
-      }
+    }
+
+    if(this.props.blogList === null) {
+      this.fetchSingleData()
+    }
+  }
+
+  fetchSingleData = () => {
+    let newConfig = {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filter: { published: true, title_slug: this.props.match.params.id },
+        limit: 1,
+        skip: 0,
+        populate: 1,
+      })
+    }
+    this.props.simpleFetch(ACTIVE_VIEW_POST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, newConfig);
+    if(this.props.user.userList === null) {
+      this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
     }
   }
 
   writtenBy = (user, data) => {
-    console.log(user.userList, data);
     for(let i = 0; i < user.length; i++) {
       if(user[i]._id === data._by) {
         return <NavLink to="/team/user"><span className="link" style={{fontWeight: '600'}}>{user[i].name}</span></NavLink>
@@ -66,7 +74,6 @@ class SinglePost extends Component {
   renderSinglePost = (passedData) => {
     if(this.props.post !== null && this.props.user.userList !== null) {
       let data = passedData.entries[0];
-      console.log(data);
       return (
         <>
           <Title variant="h1" size="medium">{data.title}</Title>

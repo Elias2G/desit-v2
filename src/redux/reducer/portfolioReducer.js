@@ -30,6 +30,10 @@ const initState = {
       value: null,
       select: ['Design', 'Wissenswertes', 'Technologie']
     },
+    autor: {
+      value: null,
+      select: ['5d8c4be238383844600001f0', 'not working']
+    },
   }
 }
 
@@ -54,7 +58,11 @@ export default function(state = initState, action) {
         ...state.filterBar,
         category: {
           ...state.filterBar.category,
-          value: action.data,
+          value: action.data.type === "category" && action.data.value,
+        },
+        autor: {
+          ...state.filterBar.autor,
+          value: action.data.type === "autor" && action.data.value,
         }
       }
     }

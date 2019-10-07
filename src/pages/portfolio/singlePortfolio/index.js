@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { NavLink } from 'react-router-dom';
+
 import { simpleFetch, determine } from '../../../redux/actions';
 import { ACTIVE_VIEW_PORTFOLIO, GET_USER } from '../../../redux/actions/type';
 
@@ -8,6 +10,10 @@ import { ROOT_URL, GET_COLLECTION, GET_USER_API, masterkey } from '../../../conf
 
 import { Container, Row, Button, Column, Title, Text, Image, Tag, Divider, SubTitle } from '../../../ui';
 import { FbShare } from '../../../assets/components/share';
+
+import { secondsToDate } from '../../../assets/utils/dateConverter';
+import { renderTags } from '../../../assets/utils/renderTags';
+
 import PortfolioLatest from '../portfolioLatest';
 import { HeaderHalf } from '../../../assets/components/header';
 import { Head, MoveBackNav } from './styled';
@@ -18,7 +24,7 @@ class SingleWork extends Component {
       if(this.props.history.action === "PUSH") {
         window.scrollTo({top: 0})
       }
-    },500);
+    },250);
 
     if(this.props.portfolioList !== null) {
       const { portfolioList } = this.props;
@@ -29,41 +35,58 @@ class SingleWork extends Component {
           this.props.determine(ACTIVE_VIEW_PORTFOLIO, {entries: [portfolioList[i]]})
           return;
         }
+        if(i === portfolioList.length - 1) {
+          this.fetchSingleData()
+        }
       }
-    } else {
-      let newConfig = {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          filter: { published: true, title_slug: this.props.match.params.id },
-          limit: 1,
-          skip: 0,
-          populate: 1,
-        })
-      }
-      this.props.simpleFetch(ACTIVE_VIEW_PORTFOLIO, `${ROOT_URL + GET_COLLECTION}/portfolio?token=${masterkey}`, newConfig);
-      if(this.props.user.userList === null) {
-        this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
+    }
+
+    if(this.props.portfolioList === null) {
+      this.fetchSingleData()
+    }
+  }
+
+  fetchSingleData = () => {
+    let newConfig = {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filter: { published: true, title_slug: this.props.match.params.id },
+        limit: 1,
+        skip: 0,
+        populate: 1,
+      })
+    }
+    this.props.simpleFetch(ACTIVE_VIEW_PORTFOLIO, `${ROOT_URL + GET_COLLECTION}/portfolio?token=${masterkey}`, newConfig);
+    if(this.props.user.userList === null) {
+      this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
+    }
+  }
+
+  writtenBy = (user, data) => {
+    console.log(user.userList, data);
+    for(let i = 0; i < user.length; i++) {
+      if(user[i]._id === data._by) {
+        return <NavLink to="/team/user"><span className="link" style={{fontWeight: '600'}}>{user[i].name}</span></NavLink>
       }
     }
   }
 
-  renderTags = (data) => {
-    return data.map((data, i) => {
-      return data.toLowerCase() === 'technologie' ? <Tag key={i} bgColor="primaryDark" color="fontSecondary">{data}</Tag> :
-      data.toLowerCase() === 'wissenswertes' ? <Tag key={i} bgColor="secondary" color="fontSecondary">{data}</Tag> : ''
-    })
-  }
-
   renderSingleWork = (passedData) => {
-    if(this.props.thisPortfolio !== null) {
+    if(this.props.thisPortfolio !== null && this.props.user.userList !== null) {
       let data = passedData.entries[0];
       return (
         <>
           <Title variant="h1" size="medium">{data.title}</Title>
-          <Text size="small">{data._by}</Text>
+          <Text
+            weight="400"
+            style={{color: '#a6a6a6'}}
+            size="xsmall"
+          >
+            von {this.writtenBy(this.props.user, data)} - {secondsToDate(data._created)}
+          </Text>
           <Text size="small">
-            {this.renderTags(data.tags)}
+            {renderTags(data.tags)}
           </Text>
           <Container nop style={{margin: '10px 0'}} >
             <div className="singleWorkStyle" dangerouslySetInnerHTML={{__html: data.content}} />
@@ -79,7 +102,7 @@ class SingleWork extends Component {
     return (
       <>
       <Container full nop style={{background: 'white'}}>
-        <Head image={ this.props.thisPortfolio !== null ? 'http://127.0.0.1/cockpit-desit/storage/uploads' + this.props.thisPortfolio.entries[0].image.path : null } />
+        <Head image={ this.props.thisPortfolio !== null ? ROOT_URL + '/storage/uploads' + this.props.thisPortfolio.entries[0].image.path : null } />
 
         <Container big style={{paddingTop: '50px'}}>
           <Row>
@@ -130,12 +153,12 @@ class SingleWork extends Component {
 const mapStateToProps = (data) => {
   return {
     thisPortfolio: data.portfolio.thisPortfolio,
-    portfolioList: data.portfolio.thisPortfolio,
+    portfolioList: data.portfolio.portfolioList,
     user: data.user
   }
 }
 
 export default connect(
   mapStateToProps,
-  { simpleFetch }
+  { simpleFetch, determine }
 )(SingleWork)
