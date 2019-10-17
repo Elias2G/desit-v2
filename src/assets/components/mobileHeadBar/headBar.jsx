@@ -5,15 +5,24 @@ import { Box, Container, Title, Line, Text, SubTitle, Row, Column, Image, Button
 import styled from 'styled-components';
 
 export const HeadBar = (props) => {
+
   return(
-    <FixedContainer>
-      <Row align="center" style={{height: '100%', padding: '10px 15px'}}>
-        <Column style={{padding: '0'}} s={12}>
-          <Text style={{padding: '0'}} size="large">designintime</Text>
-        </Column>
-        {props.children}
-      </Row>
-    </FixedContainer>
+    <>
+      {window.innerWidth < 768
+        ? <FixedContainer>
+            <Row align="center" style={{height: '100%', padding: '10px 15px'}}>
+              <Column style={{padding: '0'}} s={12}>
+                <Text style={{padding: '0'}} size="medium">designintime</Text>
+              </Column>
+              <Column style={{padding: '0'}}>
+                {props.children}
+              </Column>
+            </Row>
+          </FixedContainer>
+        : null
+      }
+    </>
+
   )
 };
 

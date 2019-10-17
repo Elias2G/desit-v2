@@ -22,10 +22,10 @@ class About extends Component {
           <Row>
             <Column s={12}>
               <Title variant="h1" size="large" color="fontSecondary">
-                Design & Technologie <br /> die Verändert
+                Wir unterstützen die weltweit führenden Unternehmen bei der Herstellung hochglanzpolierter Produkte.
               </Title>
-              <Text size="small" color="fontSecondary" style={{'marginTop': '50px'}}>
-                The expert Team at Brightscout specializes in building innovative technology solutions
+              <Text size="medium" color="fontSecondary" style={{'marginTop': '50px'}}>
+                Wir sind mehr als ein App-Entwicklungsshop. Wir sind ein voll integriertes Team aus Produktspezialisten, Strategen und Experten für Geschäftsentwicklung.
               </Text>
               <Container nop full>
                 <Button shadow="medium" toUppercase style={{'marginTop': '50px'}} variant="primary">jetzt durchstarten</Button>
@@ -38,13 +38,14 @@ class About extends Component {
           <Row align="center" justify="center" style={{'minHeight': '60vh'}}>
             <Column s={12}>
               <Title variant="h6" size="medium" style={{paddingBottom: '45px'}}>
-                We believe innovative technology can transform businesses when it’s implemented thoughtfully and accessible by like-minded communities. Unfortunately, often times applications are built with barriers that shield innovation from the tools and people who need them.
+                Wir glauben, dass innovative Technologie Unternehmen verändern kann, wenn sie sorgfältig implementiert und für die Zielgruppen optimiert ist. Leider werden häufig Anwendungen entwickelt die der heutigen Zeit nicht entsprechen.
               </Title>
               <Text size="small">
-                Founded in 2017 with an Austin, Texas headquarters, Brightscout now serves a number of the top brands and startups around the globe. Our growing team of experts spans 24 time zones – from San Francisco to London, Belgrade to Bangladesh and more.
+                Designintime wurde 19xx in Kärnten gegründet und bedient eine Reihe von Unternehmen in Kärnten und der Steiermark.
               </Text>
               <Text size="small">
-                Each person at Brightscout brings their own unique perspective and personality to the team and we value that – whether it’s an obsession for good coffee, love of memes, excitement for astrophysics, passion for travel, the quest for exceptional food or something else.
+                Jeder Mitarbeiter bei designintime bringt seine eigene einzigartige Persöhnlichkeit und Perspektive in das Team mit ein.
+                Sei es eine Besessenheit für guten Kaffee, liebe zu memes, die Leidenschaft zu reisen oder einfach was anderes.
               </Text>
             </Column>
           </Row>
@@ -58,7 +59,7 @@ class About extends Component {
           <Row style={{marginBottom: '50px'}}>
             <Column s={12}>
               <SubTitle toUppercase align="center" size="small" color="primary">
-                Unsere Arbeitsbereiche
+                Spezialgebiete
               </SubTitle>
               <Container nop>
                 <Line bgColor="primary" />
@@ -67,36 +68,36 @@ class About extends Component {
             <Column md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px" />
-                <Text size="small" weight="700">lorem ipsum dolor</Text>
+                <Text size="small" weight="700">Multidisziplines Design</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind. Each team works together to execute at a high-level with velocity.
+                  Unser Designteam ist spezialisiert. Jedes Team arbeitet zusammen, um mit hoher Geschwindigkeit auf hohem Niveau zu arbeiten.
                 </Text>
               </Container>
             </Column>
             <Column md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px" />
-                <Text size="small" weight="700">lorem ipsum dolor</Text>
+                <Text size="small" weight="700">Produkt Management</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind. Each team works together to execute at a high-level with velocity.
+                  Brillantes Design kann nur zu viel, unsere Produktmanager, verwalten den Design-Erstellungsprozess und können alle komplexen Hindernisse überwinden.
                 </Text>
               </Container>
             </Column>
             <Column md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px" />
-                <Text size="small" weight="700">lorem ipsum dolor</Text>
+                <Text size="small" weight="700">Maschienenbau</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind. Each team works together to execute at a high-level with velocity.
+                  Unser Engineering-Team ist darauf ausgelegt, Probleme zu lösen. Wir sind stolz darauf, die Erbauer und Installateure zu sein, bei denen andere oft versagen.
                 </Text>
               </Container>
             </Column>
             <Column md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px" />
-                <Text size="small" weight="700">lorem ipsum dolor</Text>
+                <Text size="small" weight="700">Geschäftsstrategie</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind. Each team works together to execute at a high-level with velocity.
+                  Die Strategie- und Betriebsarchitektur kann für jedes Unternehmen entwickelt werden, sodass Sie ohne Sodbrennen sofort mit der Ausführung beginnen können.
                 </Text>
               </Container>
             </Column>
@@ -109,7 +110,7 @@ class About extends Component {
               <Container>
                 <SubTitle align="center" size="small" toUppercase color="primary">der anfang</SubTitle>
                 <Title align="center" variant="h6" size="medium" >Starte von unten</Title>
-                <Text align="center" size="small">Jede große Firma hat einmal klein begonnen, lass uns die Zukunft gemeinsam bauen</Text>
+                <Text align="center" size="small">Alle großen Unternehmen haben irgendwo angefangen. Lassen Sie uns gemeinsam die Zukunft gestalten.</Text>
                 <Image style={{marginTop: '50px'}} src="https://via.placeholder.com/500x200" r="8px" />
               </Container>
             </Column>
@@ -117,8 +118,8 @@ class About extends Component {
             <Column md={5} style={{padding: '0'}}>
               <Container>
                 <SubTitle align="center" size="small" toUppercase color="primary">der anfang</SubTitle>
-                <Title align="center" variant="h6" size="medium" >Starte von unten</Title>
-                <Text align="center" size="small">Jede große Firma hat einmal klein begonnen, lass uns die Zukunft gemeinsam bauen</Text>
+                <Title align="center" variant="h6" size="medium" >Es auf die nächste Stufe bringen.</Title>
+                <Text align="center" size="small">Unterstützung für etablierte Unternehmen beim Aufbau ihrer nächsten großen Sache oder Erleichterung.</Text>
                 <Image style={{marginTop: '50px'}} src="https://via.placeholder.com/500x200" r="8px" />
               </Container>
             </Column>
@@ -132,7 +133,7 @@ class About extends Component {
               margin="auto"
               alignment="center"
               title="Ein kleines Team aus leidenschaftlichen Designern und Programmierern"
-              text="Led by enterprise software veterans, our team is comprised of trustworthy experts across a range of disciplines including project management, design, systems and network administration, security, devops, and development with experience on some of the most complex and interesting tech verticals."
+              text="Unter der Leitung von erfahrenen Unternehmenssoftware-Experten besteht unser Team aus vertrauenswürdigen Experten aus einer Reihe von Disziplinen, darunter Projektmanagement, Design, System- und Netzwerkadministration, Sicherheit, Entwicklung und Entwicklung mit Erfahrung in einigen der komplexesten und interessantesten technischen Branchen."
              />
           </Column>
         </Row>
@@ -142,20 +143,10 @@ class About extends Component {
             <Column s={6} md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px"/>
-                <Text style={{paddingBottom: '0'}} size="small" weight="700">Dominik Wenghofer</Text>
-                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">App / Web Entwicklung</Text>
+                <Text style={{paddingBottom: '0'}} size="small" weight="700">Carolin Lechner</Text>
+                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">Illustration & Design</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind.
-                </Text>
-              </Container>
-            </Column>
-            <Column s={6} md={3} style={{padding: '0'}}>
-              <Container>
-                <Image src="https://via.placeholder.com/400" r="8px"/>
-                <Text style={{paddingBottom: '0'}} size="small" weight="700">Elias Wuggenig</Text>
-                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">App / Web Entwicklung</Text>
-                <Text size="small">
-                  Our design team is built with specialization in mind.
+                  Leidenschaftliche/r Baggerfahrer/in seit 24 Jahren such "echten" Mann.
                 </Text>
               </Container>
             </Column>
@@ -163,10 +154,21 @@ class About extends Component {
             <Column s={6} md={3} style={{padding: '0'}}>
               <Container>
                 <Image src="https://via.placeholder.com/400" r="8px"/>
-                <Text style={{paddingBottom: '0'}} size="small" weight="700">Carolin Lechner</Text>
-                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">Illustration & Design</Text>
+                <Text style={{paddingBottom: '0'}} size="small" weight="700">Elias Wuggenig</Text>
+                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">App / Web Entwicklung</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind.
+                  Hallo, ich bin Elias und trinke gerne in der Arbeit.
+                </Text>
+              </Container>
+            </Column>
+
+            <Column s={6} md={3} style={{padding: '0'}}>
+              <Container>
+                <Image src="https://via.placeholder.com/400" r="8px"/>
+                <Text style={{paddingBottom: '0'}} size="small" weight="700">Dominik Wenghofer</Text>
+                <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">App / Web Entwicklung</Text>
+                <Text size="small">
+                  Wettkampftauglicher Sportsitzer vorm PC seit 4 Jahren and den Stuhl gefesselt.
                 </Text>
               </Container>
             </Column>
@@ -177,7 +179,7 @@ class About extends Component {
                 <Text style={{paddingBottom: '0'}} size="small" weight="700">Sandra Bacher Schönfelder</Text>
                 <Text style={{paddingTop: '0'}} size="small" weight="400" color="primaryDark">Konzept & Design</Text>
                 <Text size="small">
-                  Our design team is built with specialization in mind.
+                  Ohne meine Leute hätte ich nicht nur weniger Spaß, sondern könnte auch nur einen Bruchteil der Leistung anbieten.
                 </Text>
               </Container>
             </Column>

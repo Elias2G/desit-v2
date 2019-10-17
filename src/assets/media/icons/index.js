@@ -5,6 +5,8 @@ import Portfolio from './portfolio';
 import Home from './home';
 import Blog from './blog';
 import Plus from './plus';
+import Filter from './filter';
+import Contact from './contact';
 
 export {
   ArrowDown,
@@ -13,5 +15,7 @@ export {
   Portfolio,
   Home,
   Blog,
-  Plus
+  Plus,
+  Filter,
+  Contact
 }

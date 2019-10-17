@@ -7,11 +7,11 @@ import { FETCH_BLOGPOSTS_LIST, LOAD_MORE_BLOGPOSTS_LIST, SET_BLOGPOSTS_LIST_CONF
 
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
-import { Container, Row, Button, Column, Text } from '../../ui';
+import { Container, Button, Column, Text } from '../../ui';
 import { BlogCard, SkelletonBlogCard } from '../../assets/components/blog';
-import { BlogLatest } from '../../assets/components/blog';
+import Sidebar from '../../assets/components/sidebar';
 
-import { filterData } from '../../assets/utils/filterFunction';
+import { filterData, createReduxFilterObject } from '../../assets/utils/filterFunction';
 
 import {Select, FilterBarContainer} from '../../assets/components/filterBar';
 
@@ -23,12 +23,12 @@ class BlogList extends Component {
     }
   }
 
-  filter = (value, type) => {
+  filter = (newFilterObj) => {
     let body = this.props.config.body;
     let parsedBody = JSON.parse(body);
 
-    // takes 3 arguments [ the old search data ] [ the value of the changed field ] [ the type of the changed field ]
-    const data = filterData(parsedBody, value, type);
+    // takes 2 arguments [ the old search data ] [ a object with the new search data ]
+    const data = filterData(parsedBody, newFilterObj);
     // create a new config object for the fetch call
     let newConfig = {
       method: 'post',
@@ -42,40 +42,35 @@ class BlogList extends Component {
       })
     }
     // create new filter object
-    let newFilter = {
-      type: type,
-      value: value
-    }
+    const reduxFilterData = createReduxFilterObject(newFilterObj);
 
     this.props.determine(SET_BLOGPOSTS_LIST_CONFIG, newConfig)
-    this.props.determine(SET_BLOGPOSTS_LIST_FILTER, newFilter)
+    this.props.determine(SET_BLOGPOSTS_LIST_FILTER, reduxFilterData)
     this.props.simpleFetch(FETCH_BLOGPOSTS_LIST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, newConfig);
   }
 
   renderBlogList = (data) => {
     // checks if the fetch call for user and blogpost is finished
     if(this.props.blogPosts !== null && this.props.user !== null) {
-      return data.map((data, i) => {
-        return(
-          <Column key={i} md={6}>
-            <BlogCard
-              user={this.props.user}
-              data={data}
-            />
-          </Column>
-        )
-      })
+      if(this.props.total === 0) {
+        return <div style={{padding: '15px'}}><img style={{width: "100%", height: "100%"}} src="https://via.placeholder.com/1000x500" /></div>
+      }
+      return data.map((data, i) => (
+        <Column key={i} md={6}>
+          <BlogCard
+            user={this.props.user}
+            data={data}
+          />
+        </Column>
+      ))
     } else {
       let elements = [1,2,3,4,5];
-      return elements.map((data, i) => {
-        return(
-          <Column md={6} key={i}>
-            <SkelletonBlogCard elements={5} />
-          </Column>
-        )
-      })
+      return elements.map((data, i) => (
+        <Column md={6} key={i}>
+          <SkelletonBlogCard />
+        </Column>
+      ))
     }
-    return null
   }
 
   loadMore = () => {
@@ -95,7 +90,7 @@ class BlogList extends Component {
         })
       }
 
-      this.props.determine(SET_BLOGPOSTS_LIST_CONFIG, newConfig)
+      this.props.determine(SET_BLOGPOSTS_LIST_CONFIG, newConfig);
       this.props.simpleFetch(FETCH_BLOGPOSTS_LIST, `${ROOT_URL + GET_COLLECTION}/blogposts?token=${masterkey}`, newConfig);
     }
   }
@@ -103,33 +98,35 @@ class BlogList extends Component {
   render() {
     return (
       <>
-        <Column s={12}>
-          <FilterBarContainer filter={this.filter}>
-            <div>
+        <Column s={0} md={12}>
+          <FilterBarContainer filter={this.filter} filterData={this.props.filter}>
+            <div style={{padding: '10px'}}>
               <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Kategorie</Text>
-              <Select type="tags" options={this.props.filter.category.select} />
+              <Select type="category" options={this.props.filter.category.select} fieldValue={this.props.filter.category.value} />
             </div>
-            <div>
+            <div style={{padding: '10px'}}>
               <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Autor</Text>
-              <Select type="_by" options={this.props.filter.autor.select} />
+              <Select type="_by" options={this.props.filter._by.select} fieldValue={this.props.filter._by.value} />
             </div>
           </FilterBarContainer>
         </Column>
 
-        <Column style={{padding: '0'}} md={8}>
+        <Column style={{padding: '0'}} md={12} lg={8}>
           <Masonry>
-            {this.renderBlogList(this.props.blogPosts)}
+              {this.renderBlogList(this.props.blogPosts)}
           </Masonry>
         </Column>
-
-        <Column nop md={4}>
-          <div style={{height: '100%', width: '100%', background: '#ebebeb'}}>
-            <div style={{height: '500px', widht: '100%', background: 'grey', position: 'sticky', top: '100px'}}>
-
-            </div>
-          </div>
-        </Column>
-
+        {
+          window.innerWidth > 768
+          ? <Column nop md={4} lg={4}>
+              <div style={{position: 'sticky', top: '100px'}}>
+                <Container full nop>
+                  <Sidebar recent="Letzte Beiträge" data={this.props.blogPosts} user={this.props.user}/>
+                </Container>
+              </div>
+            </Column>
+          : null
+        }
         <Column s={12}>
           {
             this.props.blogPosts === null
@@ -146,6 +143,11 @@ class BlogList extends Component {
             >
               mehr laden
             </Button>
+          }
+          {
+            this.props.blogPosts === null
+            ? null
+            : <Text align="center" size="xsmall">{this.props.blogPosts.length} von {this.props.total} Einträgen geladen</Text>
           }
         </Column>
       </>

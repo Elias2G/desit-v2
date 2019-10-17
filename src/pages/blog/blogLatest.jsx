@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Slider from 'react-slick';
 
 import { simpleFetch, determine } from '../../redux/actions';
 import { FETCH_BLOGPOSTS_LATEST, SET_BLOGPOSTS_LIST_CONFIG, FETCH_BLOGPOSTS_LIST } from '../../redux/actions/type';
@@ -7,7 +8,7 @@ import { FETCH_BLOGPOSTS_LATEST, SET_BLOGPOSTS_LIST_CONFIG, FETCH_BLOGPOSTS_LIST
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { BlogCard, SkelletonBlogCard } from '../../assets/components/blog';
+import { BlogCard, SkelletonBlogCard, BlogCardSlider } from '../../assets/components/blog';
 
 class BlogLatest extends Component {
   componentDidMount() {
@@ -26,36 +27,65 @@ class BlogLatest extends Component {
     }
   }
 
-  renderBlogList = (data) => {
+  renderBlogListSlider = (data) => {
     if(this.props.blogPostsLatest !== null && this.props.user !== null) {
-      return data.map((data, i) => {
-        return(
-          <Column key={i} nop s={12} ml={4}>
-            <BlogCard
-              user={this.props.user}
-              data={data}
-            />
-          </Column>
-        )
-      })
+      return data.map((data, i) => (
+        <BlogCardSlider
+          key={data._id}
+          user={this.props.user}
+          data={data}
+        />
+      ))
     } else {
       let elements = [1,2,3];
-      return elements.map((data, i) => {
-        return(
-          <Column key={i} nop s={12} ml={4}>
-            <SkelletonBlogCard elements={3} />
-          </Column>
-        )
-      })
+      return elements.map((data, i) => (
+        <Column key={42 + elements[i] * 3} nop s={2} ml={4}>
+          <SkelletonBlogCard />
+        </Column>
+      ))
     }
-    return null
+  }
+
+  renderBlogList = (data) => {
+    if(this.props.blogPostsLatest !== null && this.props.user !== null) {
+      return data.map((data, i) => (
+        <Column md={4} key={data._id}>
+          <BlogCard
+            user={this.props.user}
+            data={data}
+          />
+        </Column>
+      ))
+    } else {
+      let elements = [1,2,3];
+      return elements.map((data, i) => (
+        <Column key={12 + elements[i] * 3} nop s={2} ml={4}>
+          <SkelletonBlogCard />
+        </Column>
+      ))
+    }
   }
 
 
   render() {
+    const settings ={
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      centerMode: true,
+      swipeToSlide: true,
+      arrows: false,
+    };
     return (
       <>
-        {this.renderBlogList(this.props.blogPostsLatest)}
+      {
+        window.innerWidth > 768
+        ? <Row>{this.renderBlogList(this.props.blogPostsLatest)}</Row>
+        : <Slider {...settings}>
+            {this.renderBlogListSlider(this.props.blogPostsLatest)}
+          </Slider>
+      }
       </>
     );
   }

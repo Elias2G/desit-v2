@@ -13,10 +13,12 @@ import { FbShare } from '../../../assets/components/share';
 
 import { secondsToDate } from '../../../assets/utils/dateConverter';
 import { renderTags } from '../../../assets/utils/renderTags';
+import { createPostContent } from '../../../assets/utils/createPostContent';
 
-import BlogLatest from '../blogLatest';
+import BlogRecommended from '../recommendedBlog';
 import { HeaderHalf } from '../../../assets/components/header';
 import { Head, MoveBackNav } from './styled';
+import { HeadBar } from '../../../assets/components/mobileHeadBar';
 
 class SinglePost extends Component {
   componentDidMount() {
@@ -88,19 +90,52 @@ class SinglePost extends Component {
             {renderTags(data.tags)}
           </Text>
           <Container nop style={{margin: '10px 0'}} >
-            <div className="singlePostStyle" dangerouslySetInnerHTML={{__html: data.content}} />
+            {createPostContent(data.content)}
           </Container>
         </>
       );
     }
   }
 
+  setRightImage = () => {
+    let image;
+    const windowWidth = window.innerWidth;
+    const imageArray = this.props.post.entries[0].image.styles;
+    console.log(imageArray);
+
+    for(let i = 0; i < imageArray.length; i++) {
+      if(imageArray[i].style === "mediumSmallPreview" && windowWidth <= 400) {
+        return image = imageArray[i].path;
+      }
+      if(imageArray[i].style === "mediumPreview" && windowWidth <= 800) {
+        return image = imageArray[i].path;
+      }
+      if(imageArray[i].style === "mediumLargePreview" && windowWidth <= 1200) {
+        return image = imageArray[i].path;
+      }
+      if(imageArray[i].style === "largePreview" && windowWidth <= 1600) {
+        return image = imageArray[i].path;
+      }
+      if(imageArray[i].style === "fullPreview" && windowWidth > 1600) {
+        return image = imageArray[i].path;
+      }
+    }
+  }
 
   render() {
     return (
       <>
+      <HeadBar location >
+          <Text style={{padding: '0', width: '100px'}} size="xsmall">
+            <span>
+              <NavLink to="/blog" activeStyle={{color: '#20D1D1'}}>Blog </NavLink>
+            </span>
+          <span style={{color: '#acacac'}}>/Beitrag</span>
+          </Text>
+      </HeadBar>
+
       <Container full nop style={{background: 'white'}}>
-        <Head image={ this.props.post !== null ? ROOT_URL + '/storage/uploads' + this.props.post.entries[0].image.path : null } />
+        <Head image={ this.props.post !== null ? ROOT_URL + '/' + this.setRightImage() : null } />
 
         <Container big style={{paddingTop: '50px'}}>
           <Row>
@@ -138,7 +173,11 @@ class SinglePost extends Component {
             </Column>
           </Row>
           <Row>
-            <BlogLatest />
+            {
+              this.props.post !== null
+              ? <BlogRecommended activeViewPostData={this.props.post} />
+              : null
+            }
           </Row>
         </Container>
       </Container>

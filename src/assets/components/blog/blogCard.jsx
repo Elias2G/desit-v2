@@ -20,71 +20,125 @@ const Card = styled.div`
   transition: 200ms;
   padding: 5px;
   margin-bottom: 25px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
   background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
 
   :hover {
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
     transition: 200ms;
+    .readMore {
+      transform: translateX(10px);
+      transition: 200ms;
+    }
   }
 
   @media ${breakPoints.md} {
+    border-radius: 16px;
     box-shadow: none;
     margin-bottom: 25px;
     padding: 0;
   }
 
+  .excerptStyle {
+    padding: 10px 0 0 0 !important;
+
+    @media ${breakPoints.md} {
+      padding: 15px 0px;
+    }
+  }
+
+  .readMore {
+    position: relative;
+    transition: 200ms;
+    :hover {
+      color: red;
+    }
+  }
+
+`;
+
+const BlogImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 `;
 
 export const BlogCard = React.memo((props) => {
   // renders the tags with different colors based on the string name
-
   const writtenBy = (user) => {
     for(let i = 0; i < user.length; i++) {
       if(user[i]._id === props.data._by) {
-        return <NavLink to="/team/user"><span className="link" style={{fontWeight: '600'}}>{user[i].name}</span></NavLink>
+        return <span style={{fontWeight: '400'}}>{user[i].name}</span>
+      }
+    }
+  }
+
+  const useRightImage = () => {
+    let image;
+    const imageArray = props.data.image.styles;
+    const windowWidth = window.innerWidth;
+    for(let i = 0; i < imageArray.length; i++) {
+      if(imageArray[i].style === "mediumSmallPreview" && windowWidth <= 768) {
+        return image = imageArray[i].path;
+      }
+      if(imageArray[i].style === "mediumPreview" && windowWidth > 768) {
+        return image = imageArray[i].path;
       }
     }
   }
 
   return (
     <Card full nop>
-
         <Row>
-          <NavLink to={`/blog/${props.data.title_slug}`}>
-            <Column md={12}>
-              <Image style={{cursor: 'pointer'}} style={{height: '100%', width: 'inherit'}} r="8px" src={ROOT_URL + '/storage/uploads' + props.data.image.path} />
-            </Column>
-          </NavLink>
+
+          {props.data.image.path === undefined
+            ? null
+            : <NavLink to={`/blog/${props.data.title_slug}`}>
+                <Column style={{paddingBottom: '0'}} md={12}>
+                  <BlogImage alt={props.data.title} style={{cursor: 'pointer'}} r="8px" src={ROOT_URL + '/' + useRightImage()} />
+                </Column>
+              </NavLink>
+          }
+
+
           <Column md={12}>
             <NavLink to={`/blog/${props.data.title_slug}`}>
-              <Text style={{paddingTop: '0', paddingBottom: '0', maxWidth: '400px', cursor: 'pointer'}} size="medium" weight="700">
-                {props.data.title}
+              <Text style={{paddingTop: '5px', paddingBottom: '0', lineHeight: '1.4', cursor: 'pointer'}} size="large" weight="600">
+                  {props.data.title}
               </Text>
             </NavLink>
+
             <Text
               weight="400"
-              style={{color: '#a6a6a6'}}
+              style={{color: '#a6a6a6', padding: '5px 0 0 0'}}
               size="xsmall"
-            >
+              >
               von {writtenBy(props.user)} - {secondsToDate(props.data._created)}
             </Text>
-            <Text style={{paddingTop: '0'}} size="small">{createExcerpt(props.data.content, 0, 100)}</Text>
-            <Text style={{padding: '5px 0 15px 0'}} size="small">
-              {renderTags(props.data.tags)}
+
+            <Text className="excerptStyle" size="small">{createExcerpt(props.data.excerpt, 0, 120)}</Text>
+
+            <Text style={{padding: '5px 0 0px 0'}} size="small">
+              {renderTags(props.data.category)} {renderTags(props.data.tags)}
             </Text>
-            <Row justify="flex-start" style={{marginTop: 'auto'}}>
-              <Column style={{padding: '0'}} s={6}>
-                <NavLink to={`/blog/${props.data.title_slug}`}>
-                  <Text style={{padding: '0', fontWeight: '600'}} size="small" color="primaryDark">- weiterlesen</Text>
-                </NavLink>
-              </Column>
-              <Column style={{padding: '0'}} s={6}>
-                <Row justify="flex-end" align="center">
-                  <SharePopUp />
-                </Row>
-              </Column>
-            </Row>
+
+            {
+              window.innerWidth > 992
+              &&
+              <Row justify="flex-start" style={{marginTop: 'auto'}}>
+                <Column style={{padding: '0'}} s={8}>
+                  <NavLink to={`/blog/${props.data.title_slug}`}>
+                    <Text className="readMore" style={{paddingBottom: '0'}} size="small" weight="600" color="primaryDark">weiterlesen</Text>
+                  </NavLink>
+                </Column>
+                <Column style={{padding: '0'}} s={4}>
+                  <Row justify="flex-end" align="bottom">
+                    <SharePopUp />
+                  </Row>
+                </Column>
+              </Row>
+            }
+
           </Column>
         </Row>
     </Card>
@@ -114,5 +168,47 @@ export const SkelletonBlogCard = React.memo((props) => {
         </Column>
       </Row>
     </Card>
+  )
+});
+
+
+export const SmallBlogCard = React.memo((props) => {
+  // renders the tags with different colors based on the string name
+  const writtenBy = (user) => {
+    for(let i = 0; i < user.length; i++) {
+      if(user[i]._id === props.data._by) {
+        return <span style={{fontWeight: '400'}}>{user[i].name}</span>
+      }
+    }
+  }
+  return (
+    <div style={{marginBottom: '10px'}}>
+        <Row align="center" justify="center">
+          <Column style={{padding: '0'}} s={2}>
+            { props.data.image.path === undefined
+              ? null
+              : <NavLink to={`/blog/${props.data.title_slug}`}>
+                  <Image style={{cursor: 'pointer'}} style={{height: '50px', width: '50px'}} r="8px" src={ROOT_URL + '/storage/uploads' + props.data.image.path} />
+                </NavLink>
+            }
+          </Column>
+
+
+          <Column style={{padding: '0'}} s={9}>
+            <NavLink to={`/blog/${props.data.title_slug}`}>
+              <Text style={{padding: '0', lineHeight: '1.4', cursor: 'pointer'}} size="small" weight="700">
+                {props.data.title}
+              </Text>
+            </NavLink>
+            <Text
+              weight="400"
+              style={{color: '#a6a6a6', padding: '0px 0 0 0'}}
+              size="xsmall"
+            >
+              von {writtenBy(props.user)} - {secondsToDate(props.data._created)}
+            </Text>
+          </Column>
+        </Row>
+    </div>
   )
 });

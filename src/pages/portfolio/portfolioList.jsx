@@ -11,7 +11,7 @@ import { Container, Row, Button, Column, Text } from '../../ui';
 import { PortfolioListCard, SkelletonPortfolioListCard } from '../../assets/components/portfolio';
 import { PortfolioLatest } from '../../assets/components/portfolio';
 
-import { filterData } from '../../assets/utils/filterFunction';
+import { filterData, createReduxFilterObject } from '../../assets/utils/filterFunction';
 
 import { FilterBarContainer, Select } from '../../assets/components/filterBar';
 
@@ -23,12 +23,13 @@ class PortfolioList extends Component {
     }
   }
 
-  filter = (value, type) => {
+  filter = (newFilterObj) => {
+    console.log(newFilterObj);
     let body = this.props.config.body;
     let parsedBody = JSON.parse(body);
 
-    const data = filterData(parsedBody, value, type);
-
+    const data = filterData(parsedBody, newFilterObj);
+    console.log(data);
     let newConfig = {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -41,19 +42,19 @@ class PortfolioList extends Component {
       })
     }
     // create new filter object
-    let newFilter = {
-      type: type,
-      value: value
-    }
-
+    const reduxFilterData = createReduxFilterObject(newFilterObj);
+    console.log(reduxFilterData);
     this.props.determine(SET_PORTFOLIO_LIST_CONFIG, newConfig)
-    this.props.determine(SET_PORTFOLIO_LIST_FILTER, newFilter)
+    this.props.determine(SET_PORTFOLIO_LIST_FILTER, reduxFilterData)
     this.props.simpleFetch(FETCH_PORTFOLIO_LIST, `${ROOT_URL + GET_COLLECTION}/portfolio?token=${masterkey}`, newConfig);
   }
 
   renderPortfolioList = (data) => {
     //HAVE TO ADD THE FILTER FUNCTION
     if(this.props.portfolioEntrys !== null && this.props.user !== null) {
+      if(this.props.total === 0) {
+        return <div style={{padding: '15px'}}><img style={{width: "100%", height: "100%"}} src="https://via.placeholder.com/1000x500" /></div>
+      }
       return data.map((data, i) => {
         return(
           <Column key={i} s={12} md={4}>
@@ -106,14 +107,18 @@ class PortfolioList extends Component {
     return (
       <>
         <Column s={12}>
-          <FilterBarContainer filter={this.filter}>
-            <div>
-              <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Kategorie</Text>
-              <Select type="tags" options={this.props.filter.category.select} />
+          <FilterBarContainer filter={this.filter} filterBarData={this.props.filter}>
+            <div style={{padding: '10px'}}>
+              <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Bereich</Text>
+              <Select type="category" options={this.props.filter.category.select} fieldValue={this.props.filter.category.value} />
             </div>
-            <div>
+            <div style={{padding: '10px'}}>
+              <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Arbeit</Text>
+              <Select type="worked" options={this.props.filter.worked.select} fieldValue={this.props.filter.worked.value} />
+            </div>
+            <div style={{padding: '10px'}}>
               <Text weight="600" size="small" style={{padding: '10px 0 10px 0', lineHeight: '1'}}>Autor</Text>
-              <Select type="_by" options={this.props.filter.autor.select} />
+              <Select type="_by" options={this.props.filter._by.select} fieldValue={this.props.filter._by.value} />
             </div>
           </FilterBarContainer>
         </Column>
@@ -141,6 +146,11 @@ class PortfolioList extends Component {
             >
               mehr laden
             </Button>
+          }
+          {
+            this.props.portfolioEntrys === null
+            ? null
+            : <Text align="center" size="xsmall">{this.props.portfolioEntrys.length} von {this.props.total} Einträgen geladen</Text>
           }
 
         </Column>

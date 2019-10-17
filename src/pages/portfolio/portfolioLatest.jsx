@@ -7,7 +7,7 @@ import { FETCH_PORTFOLIO_LATEST, SET_PORTFOLIO_LIST_CONFIG, FETCH_PORTFOLIO_LIST
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { PortfolioLatestCard, SkelletonPortfolioLatestCard } from '../../assets/components/portfolio';
+import { PortfolioListCard, SkelletonPortfolioListCard } from '../../assets/components/portfolio';
 
 class PortfolioLatest extends Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ class PortfolioLatest extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           filter: { published: true },
-          limit: 3,
+          limit: 5,
           skip: 0,
           populate: 1, // resolve linked collection items
           sort: {_created: -1}
@@ -32,7 +32,7 @@ class PortfolioLatest extends Component {
         if(i === 0) {
           return(
             <Column key={i} nop s={12} ml={8}>
-              <PortfolioLatestCard
+              <PortfolioListCard
                 user={this.props.user}
                 data={data}
               />
@@ -41,7 +41,7 @@ class PortfolioLatest extends Component {
         } else {
           return(
             <Column key={i} nop s={12} ml={4}>
-              <PortfolioLatestCard
+              <PortfolioListCard
                 user={this.props.user}
                 data={data}
               />
@@ -54,7 +54,7 @@ class PortfolioLatest extends Component {
       return elements.map((data, i) => {
         return(
           <Column key={i} nop s={12} ml={4}>
-            <SkelletonPortfolioLatestCard elements={3} />
+            <SkelletonPortfolioListCard elements={3} />
           </Column>
         )
       })

@@ -8,6 +8,8 @@ import SinglePost from '../pages/blog/singlePost';
 import Portfolio from '../pages/portfolio';
 import SinglePortfolio from '../pages/portfolio/singlePortfolio';
 import About from '../pages/about';
+import Services from '../pages/services';
+import ThemaReact from '../pages/services/technology/thema-react.js';
 import Footer from './footer';
 
 import styled from 'styled-components';
@@ -31,6 +33,8 @@ class Main extends Component {
                 <Route exact path="/blog/:id" component={SinglePost} />
                 <Route exact path="/blog" component={Blog} />
                 <Route exact path="/ueber-uns" component={About} />
+                <Route exact path="/leistungen" component={Services} />
+                <Route exact path="/leistungen/react-js" component={ThemaReact} />
                 <Route exact path="/" component={LandingPage} />
               </Switch>
               <Route path="/" component={Footer} />

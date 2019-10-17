@@ -28,9 +28,13 @@ const initState = {
     },
     category: {
       value: null,
-      select: ['Design', 'Wissenswertes', 'Technologie']
+      select: ['Industrie', 'Feuerwehr', 'Glaserei']
     },
-    autor: {
+    worked: {
+      value: null,
+      select: ['Website', 'Corporate Design']
+    },
+    _by: {
       value: null,
       select: ['5d8c4be238383844600001f0', 'not working']
     },
@@ -52,17 +56,22 @@ export default function(state = initState, action) {
       total: action.data.total
     }
     case SET_PORTFOLIO_LIST_FILTER:
+      if(action.data === null) { return state }
       return {
         ...state,
       filterBar: {
         ...state.filterBar,
         category: {
           ...state.filterBar.category,
-          value: action.data.type === "category" && action.data.value,
+          value: action.data.category !== undefined && action.data.category.value,
         },
-        autor: {
-          ...state.filterBar.autor,
-          value: action.data.type === "autor" && action.data.value,
+        worked: {
+          ...state.filterBar.worked,
+          value: action.data.worked !== undefined && action.data.worked.value,
+        },
+        _by: {
+          ...state.filterBar._by,
+          value: action.data._by !== undefined && action.data._by.value,
         }
       }
     }

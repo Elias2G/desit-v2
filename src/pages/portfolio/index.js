@@ -10,6 +10,7 @@ import { Box, Container, Title, Line, Text, Button, Row, Column, Image, Divider,
 
 import { BigTextBlock, ImageBlock, MediumTextBlock, LittleTextBlock } from '../../assets/components/textblocks';
 import { HeaderHalf } from '../../assets/components/header';
+import { HeadBar } from '../../assets/components/mobileHeadBar';
 
 import PortfolioList from './portfolioList';
 import PortfolioLatest from './portfolioLatest';
@@ -29,6 +30,13 @@ class Portfolio extends Component {
   }
   render() {
     return (
+      <>
+      <HeadBar>
+        <Text style={{padding: '0'}} size="xsmall">
+          <span style={{color: '#acacac'}}>Portfolio</span>
+        </Text>
+      </HeadBar>
+
       <Container full nop style={{backgroundColor: 'white'}}>
         <HeaderHalf>
           <Row>
@@ -68,9 +76,8 @@ class Portfolio extends Component {
             <PortfolioList />
           </Row>
         </Container>
-
-
       </Container>
+      </>
     );
   }
 }

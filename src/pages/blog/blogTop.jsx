@@ -7,10 +7,9 @@ import { FETCH_BLOGPOST_TOP, SET_BLOGPOSTS_LIST_CONFIG, FETCH_BLOGPOSTS_LIST } f
 import { ROOT_URL, GET_COLLECTION, masterkey } from '../../config';
 
 import { Container, Row, Button, Column } from '../../ui';
-import { BlogTopCard, SkelletonBlogTopCard } from '../../assets/components/blog';
+import { BlogCard, SkelletonBlogCard } from '../../assets/components/blog';
 
 class BlogTop extends Component {
-
 
   componentDidMount() {
     if(this.props.topPost === null) {
@@ -32,7 +31,7 @@ class BlogTop extends Component {
       return data.map((data, i) => {
         return(
           <Column key={i} nop s={12}>
-            <BlogTopCard
+            <BlogCard
               user={this.props.user}
               data={data}
             />
@@ -43,7 +42,7 @@ class BlogTop extends Component {
       let elements = [1];
       return elements.map((data, i) => {
         return(
-          <SkelletonBlogTopCard key={i} elements={1} />
+          <SkelletonBlogCard key={i} elements={1} />
         )
       })
     }

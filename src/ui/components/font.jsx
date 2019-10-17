@@ -50,6 +50,7 @@ const H5 = styled.h5`
   ${props => groupDefaultStyles(props, 'h5', 'title')}
 `;
 const H6 = styled.h6`
+  line-height: 1.3;
   text-align: ${props => props.align || 'left'};
   ${props => groupDefaultStyles(props, 'h6', 'title')}
 `;
@@ -88,7 +89,7 @@ export const Title = (props) => {
 
 
 const Pararaph = styled.p`
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: ${props => props.align || 'left'};
   ${props => groupDefaultStyles(props, 'paragraph')}
 `;

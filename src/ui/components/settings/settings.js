@@ -32,7 +32,7 @@ export const color = {
   tertiaryLight: '#51eb6f',
   tertiaryDark: '#00846E',
 
-  fontPrimary: '#2b2b2b',
+  fontPrimary: '#3b3a3a',
   fontSecondary: '#fafafa',
   fontAccent: '#cd0000'
 };
@@ -181,9 +181,9 @@ export const font = {
       },
     },
     paragraph: {
-      large: 'calc(15pt + 0.0rem)',
+      large: 'calc(15pt + 0.10rem)',
       medium: 'calc(13pt + 0.10rem)',
-      small: 'calc(10pt + 0.10rem)',
+      small: 'calc(10pt + 0.16rem)',
       xsmall: 'calc(8pt + 0.10rem)',
     },
     button: {

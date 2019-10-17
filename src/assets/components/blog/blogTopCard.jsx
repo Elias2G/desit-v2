@@ -77,7 +77,7 @@ export const BlogTopCard = React.memo((props) => {
             >
               von {writtenBy(props.user)}, am {secondsToDate(props.data._created)}
             </Text>
-            <Text size="small">{createExcerpt(props.data.content, 0, 200)}</Text>
+            <Text size="small">{createExcerpt(props.data.excerpt, 0, 200)}</Text>
             <Text style={{padding: '5px 0 15px 0'}} size="small">
               {renderTags(props.data.tags)}
             </Text>

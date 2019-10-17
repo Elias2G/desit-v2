@@ -19,10 +19,10 @@ class Footer extends Component {
                   verändern kann
                 </Title>
                 <Text size="medium" color="fontSecondary" weight="300" style={{marginTop: '50px', opacity: '0.8'}}>
-                  Do you need an elite team of technologist and idea-makers? Is quality important to you? Is scalability and endless customization paramount? Do you need a brand that is built specifically for your company and can be as innovative as you are?
+                  Benötigen Sie ein Elite-Team aus Technologen und Ideengebern? Ist Ihnen Qualität wichtig? Ist Skalierbarkeit und endlose Anpassung von größter Bedeutung? Benötigen Sie eine Marke, die speziell für Ihr Unternehmen entwickelt wurde und so innovativ sein kann wie Sie?
                 </Text>
                 <Text size="medium" color="fontSecondary" weight="300" style={{opacity: '0.8'}}>
-                  Tell us a little about your needs and a Brightscout business analyst will get in touch.
+                  Erzählen Sie uns etwas über Ihre Bedürfnisse und ein Brightscout-Business-Analyst wird sich mit Ihnen in Verbindung setzen.
                 </Text>
                 <Title style={{marginTop: '50px'}} color="fontSecondary" variant="h4" size="medium"><span style={{fontWeight: '700'}}>
                   Sag Hallo!</span> office@designintime.at
@@ -88,7 +88,7 @@ class Footer extends Component {
 
               <Column md={3}>
                 <Title variant="h6" size="medium" color="fontSecondary">Technologien</Title>
-                <NavLink to="/ueber-uns" >
+                <NavLink to="/leistungen/react-js" >
                   <Text size="small" color="fontSecondary">React.js</Text>
                 </NavLink>
                 <NavLink to="/blog" >

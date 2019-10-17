@@ -8,7 +8,7 @@ import { SelectField, Text, Option } from '../../../ui';
 
 export default class Select extends React.Component {
 
-  renderOptionList = (options) => {
+  renderOptionList = (options, fieldValue) => {
     return options.map((data, i) => {
       return <Option key={i}>{data}</Option>
     })
@@ -16,7 +16,7 @@ export default class Select extends React.Component {
 
   render() {
     return (
-      <SelectField>
+      <SelectField defaultValue={this.props.fieldValue}>
         <Option>Alle</Option>
         {this.renderOptionList(this.props.options)}
       </SelectField>

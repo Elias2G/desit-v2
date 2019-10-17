@@ -12,24 +12,24 @@ class DesktopNav extends Component {
         <Container full nop>
           <Row>
             <Column nop s={2}>
-              logo
+              <Text weight="600" size="medium">designintime</Text>
             </Column>
             <Column nop s={8}>
               <Row justify="center">
                 <div style={{padding: '0 15px'}}>
-                  <NavLink activeStyle={{color: '#20D1D1'}} exact to="/"><Text size="small">Home</Text></NavLink>
+                  <NavLink activeClassName="mainNavLink" exact to="/"><Text className="mainNav" size="small">Home</Text></NavLink>
                 </div>
                 <div style={{padding: '0 15px'}}>
-                  <NavLink activeStyle={{color: '#20D1D1'}} exact to="/blog"><Text size="small">Blog</Text></NavLink>
+                  <NavLink activeClassName="mainNavLink" to="/blog"><Text className="mainNav" size="small">Blog</Text></NavLink>
                 </div>
                 <div style={{padding: '0 15px'}}>
-                  <NavLink activeStyle={{color: '#20D1D1'}} exact to="/portfolio"><Text size="small">Portfolio</Text></NavLink>
+                  <NavLink activeClassName="mainNavLink" to="/portfolio"><Text className="mainNav" size="small">Portfolio</Text></NavLink>
                 </div>
                 <div style={{padding: '0 15px'}}>
-                  <NavLink activeStyle={{color: '#20D1D1'}} exact to="/leistungen"><Text size="small">Leistungen</Text></NavLink>
+                  <NavLink activeClassName="mainNavLink" to="/leistungen"><Text className="mainNav" size="small">Leistungen</Text></NavLink>
                 </div>
                 <div style={{padding: '0 15px'}}>
-                  <NavLink activeStyle={{color: '#20D1D1'}} exact to="/ueber-uns"><Text size="small">Über uns</Text></NavLink>
+                  <NavLink activeClassName="mainNavLink" exact to="/ueber-uns"><Text className="mainNav" size="small">Über uns</Text></NavLink>
                 </div>
               </Row>
             </Column>

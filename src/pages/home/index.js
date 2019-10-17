@@ -25,8 +25,8 @@ class LandingPage extends Component {
               <Title variant="h1" size="large" color="fontSecondary">
                 Design & Technologie <br /> die Verändert
               </Title>
-              <Text size="small" color="fontSecondary" style={{'marginTop': '50px'}}>
-                The expert Team at Brightscout specializes in building innovative technology solutions
+              <Text size="medium" color="fontSecondary" style={{'marginTop': '50px', maxWidth: '600px'}}>
+                Aufbau hochmoderner SaaS-Markenerlebnisse, die das Geschäft transformieren und die Innovationsgeschwindigkeit beschleunigen.
               </Text>
               <Container nop full>
                 <Button shadow="medium" toUppercase style={{'marginTop': '50px'}} variant="primary">jetzt durchstarten</Button>
@@ -42,7 +42,7 @@ class LandingPage extends Component {
               margin="auto"
               alignment="center"
               title="Wir sind designintime eine digitale Web Entwicklung &- Design Agentur"
-              text="Wir sind ein gut aufgestelltes Team von Programmierern und Designern. Wir helfen Ihrem Unternehmen in der digitalen Welt Fuß zu fassen, Ihre Arbeitsabläufe zu automatisieren und optimieren und alles abgeschmückt mit einem innovativen Design das Sie einen Schritt vor Ihre Mitbewerber bringt."
+              text="Das Expertenteam von Brightscout ist auf die Entwicklung innovativer Technologielösungen für Unternehmen spezialisiert. Unsere Produkte und Dienstleistungen setzen neue Maßstäbe in Bezug auf Produktivität, verbessern die Zusammenarbeit zwischen Teammitgliedern und optimieren die Kommunikation in großem Maßstab. Wir verwenden eine leistungsstarke Mischung aus exquisitem Design und innovativer Technologie, um die Probleme zu lösen, die viele Unternehmen heute beschäftigen."
              />
           </Column>
         </Row>
@@ -72,8 +72,8 @@ class LandingPage extends Component {
 
          <MediumTextBlock
            align="center"
-           subtitle="How thinks work"
-           text="The expert team at Brightscout specializes in building innovative technology solutions for enterprises. Our products and services unleash new levels of productivity"
+           subtitle="Beschleunige Business wachstum"
+           text="Wir arbeiten mit Kunden zusammen, um erfolgreiche digitale Geschäfte, Produkte und Erlebnisse zu schaffen, indem wir Ihren Kunden zuhören."
          />
          <Container big>
            <Row>
@@ -86,20 +86,20 @@ class LandingPage extends Component {
            <Row>
              <Column s={12} md={4}>
                <LittleTextBlock
-                 title="lorem ipsum dolor"
-                 text="Wir sind ein gut aufgestelltes Team von Programmierern und Designern. Wir helfen Ihrem Unternehmen in der digitalen Welt Fuß zu fassen, Ihre Arbeitsabläufe zu automatisieren und optimieren und alles abgeschmückt mit einem innovativen Design das Sie einen Schritt vor Ihre Mitbewerber bringt."
+                 title="Zweckmäßig schönes Design"
+                 text="Die Menschen erwarten und reagieren heute mehr denn je auf schöne digitale Erlebnisse. Schönheit und Freude sind Kern unserer Strategie und zielgerichtet in unserer Produktdesignpraxis."
                />
              </Column>
              <Column s={12} md={4}>
                <LittleTextBlock
-                 title="lorem ipsum dolor"
-                 text="Wir sind ein gut aufgestelltes Team von Programmierern und Designern. Wir helfen Ihrem Unternehmen in der digitalen Welt Fuß zu fassen, Ihre Arbeitsabläufe zu automatisieren und optimieren und alles abgeschmückt mit einem innovativen Design das Sie einen Schritt vor Ihre Mitbewerber bringt."
+                 title="Mit innovativer Technologie gebaut"
+                 text="Wir lassen Innovationen durch Design vorantreiben. Die Kompetenz und das Vertrauen unseres Technologieteams befähigen unsere Designer, die Bedürfnisse und Wünsche der Menschen wirklich in den Vordergrund zu stellen."
                />
              </Column>
              <Column s={12} md={4}>
                <LittleTextBlock
-                 title="lorem ipsum dolor"
-                 text="Wir sind ein gut aufgestelltes Team von Programmierern und Designern. Wir helfen Ihrem Unternehmen in der digitalen Welt Fuß zu fassen, Ihre Arbeitsabläufe zu automatisieren und optimieren und alles abgeschmückt mit einem innovativen Design das Sie einen Schritt vor Ihre Mitbewerber bringt."
+                 title="Informiert durch umfassende Strategie"
+                 text="Der ultimative Erfolg eines Produkts hängt von den Menschen ab, die von den Ergebnissen betroffen sind. Aus diesem Grund steht bei unserem Ansatz der Mensch an erster Stelle, wenn Entscheidungen getroffen, Systeme entworfen und gebaut werden."
                />
              </Column>
            </Row>
@@ -112,11 +112,11 @@ class LandingPage extends Component {
                <Title variant="h4" size="medium">Unsere letzten Beiträge</Title>
              </Column>
            </Row>
-           <Row>
-             <BlogLatest />
-           </Row>
+
+           <BlogLatest />
+
            <Row justify="center" style={{marginBottom: '50px'}}>
-             <Button shadow="medium" toUppercase variant="gradient" withGradient="secondary">alle Beiträge ansehen</Button>
+             <Button size="small" shadow="medium" toUppercase variant="gradient" withGradient="secondary">alle Beiträge ansehen</Button>
            </Row>
          </Container>
 

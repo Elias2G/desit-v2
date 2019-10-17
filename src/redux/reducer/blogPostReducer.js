@@ -3,6 +3,7 @@ import {
   SET_BLOGPOSTS_LIST_CONFIG,
   SET_BLOGPOSTS_LIST_FILTER,
   ACTIVE_VIEW_POST,
+  ACTIVE_VIEW_POST_RECOMMENDED,
   FETCH_BLOGPOSTS_LATEST,
   FETCH_BLOGPOST_TOP
 } from '../actions/type';
@@ -24,6 +25,7 @@ const initState = {
     })
   },
   thisPost: null,
+  thisPostRecommended: null,
   filterBar: {
     search: {
       value: null,
@@ -32,7 +34,7 @@ const initState = {
       value: null,
       select: ['Design', 'Wissenswertes', 'Technologie']
     },
-    autor: {
+    _by: {
       value: null,
       select: ['5d8c4be238383844600001f0', 'not working']
     },
@@ -47,6 +49,8 @@ export default function(state = initState, action) {
       return {...state, loadFromBlogList: action.data }
     case ACTIVE_VIEW_POST:
       return {...state, thisPost: action.data }
+    case ACTIVE_VIEW_POST_RECOMMENDED:
+      return {...state, thisPostRecommended: action.data.entries }
     case FETCH_BLOGPOSTS_LATEST:
       return {
         ...state,
@@ -60,17 +64,18 @@ export default function(state = initState, action) {
       total: action.data.total
     }
     case SET_BLOGPOSTS_LIST_FILTER:
+    if(action.data === null) { return state }
       return {
         ...state,
       filterBar: {
         ...state.filterBar,
         category: {
           ...state.filterBar.category,
-          value: action.data.type === "category" && action.data.value,
+          value: action.data.category !== undefined && action.data.category.value,
         },
-        autor: {
-          ...state.filterBar.autor,
-          value: action.data.type === "autor" && action.data.value,
+        _by: {
+          ...state.filterBar._by,
+          value: action.data._by !== undefined && action.data._by.value,
         }
       }
     }

@@ -6,10 +6,10 @@ import { GET_USER } from '../../redux/actions/type';
 
 import { ROOT_URL, GET_USER_API, masterkey } from '../../config';
 
-import { Box, Container, Title, Line, Text, Button, Row, Column, Image, Divider, SubTitle } from '../../ui';
+import { Container, Title, Text, Row, Column, Divider, SubTitle } from '../../ui';
 
-import { BigTextBlock, ImageBlock, MediumTextBlock, LittleTextBlock } from '../../assets/components/textblocks';
 import { HeaderHalf } from '../../assets/components/header';
+import { HeadBar } from '../../assets/components/mobileHeadBar';
 
 import BlogList from './blogList';
 import BlogLatest from './blogLatest';
@@ -17,19 +17,25 @@ import BlogTop from './blogTop';
 
 class Blog extends Component {
   componentDidMount() {
-
     setTimeout(() => {
       if(this.props.history.action === "PUSH") {
         window.scrollTo({top: 0})
       }
     },250);
-
+    //get data from the author of blog and / or portfolio entries
     if(this.props.user === null) {
       this.props.simpleFetch(GET_USER, `${ROOT_URL + GET_USER_API}?token=${masterkey}`);
     }
   }
   render() {
     return (
+      <>
+      <HeadBar>
+        <Text style={{padding: '0'}} size="xsmall">
+          <span style={{color: '#acacac'}}>Blog</span>
+        </Text>
+      </HeadBar>
+
       <Container full nop style={{backgroundColor: 'white'}}>
         <HeaderHalf>
           <Row>
@@ -47,21 +53,13 @@ class Blog extends Component {
         {/* Top Beitrag Bereich */}
         <Container big>
           <Row>
+            <Column s={12}>
+              <SubTitle color="primary" size="small" >EMPFOHLEN</SubTitle>
+              <Title variant="h4" size="medium">Unsere Empfehlungen</Title>
+            </Column>
             <BlogTop />
           </Row>
-          <Divider />
-        </Container>
-
-        <Container big>
-          <Row>
-            <Column s={12}>
-              <SubTitle color="primary" size="small" >NEU</SubTitle>
-              <Title variant="h4" size="medium">Unsere letzten Beiträge</Title>
-            </Column>
-          </Row>
-          <Row>
-            <BlogLatest />
-          </Row>
+          <BlogLatest />
           <Divider />
         </Container>
 
@@ -76,9 +74,8 @@ class Blog extends Component {
             <BlogList />
           </Row>
         </Container>
-
-
       </Container>
+      </>
     );
   }
 }

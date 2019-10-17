@@ -10,8 +10,8 @@ const MyTags = styled.span`
   border-radius: 25px;
   font-size: calc(8pt + 0.10rem);
   margin-right: 5px;
-  opacity: 0.8;
-  word-break: break-all;
+  opacity: 1;
+  word-break: keep-all;
 `;
 
 const TagIcon = styled.span`

@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { ROOT_URL } from '../../../config';
 
 import { secondsToDate } from '../../utils/dateConverter';
+import { renderTags } from '../../utils/renderTags';
 
 import { Container, Row, Column, Title, Text, Image, Tag, SubTitle } from '../../../ui';
 import { breakPoints } from '../../../ui/components/settings';
@@ -66,26 +67,6 @@ const Card = styled.div`
 
 export const PortfolioLatestCard = React.memo((props) => {
 
-  // renders the tags with different colors based on the string name
-  const renderTags = (data) => {
-    return data.map((data, i) => {
-      return (
-        data.toLowerCase() === 'technologie' ? <Tag key={i} bgColor="primaryDark" color="fontSecondary">{data}</Tag> :
-        data.toLowerCase() === 'wissenswertes' ? <Tag key={i} bgColor="secondaryDark" color="fontSecondary">{data}</Tag> :
-        data.toLowerCase() === 'design' ? <Tag key={i} bgColor="tertiaryDark" color="fontSecondary">{data}</Tag> : ''
-      )
-    })
-  }
-
-  const createExcerpt = (data) => {
-    let regex = /(<([^>]+)>)/ig;
-    let removedHtml = data.replace(regex, "");
-    let createArrayFromString = removedHtml.split("");
-    let reduceArrayLength = createArrayFromString.splice(0, 100);
-    let arrayToString = reduceArrayLength.join('');
-    return arrayToString;
-  }
-
   const writtenBy = (user) => {
     for(let i = 0; i < user.length; i++) {
       if(user[i]._id === props.data._by) {
@@ -104,9 +85,9 @@ export const PortfolioLatestCard = React.memo((props) => {
               <Text color="fontSecondary" style={{paddingTop: '0', paddingBottom: '0'}} size="medium" weight="600">
                 {props.data.title}
               </Text>
-              <Text color="fontSecondary" size="small" weight="600" style={{paddingBottom: '2px'}}>- Glaserei</Text>
+              <Text color="fontSecondary" size="small" weight="600" style={{paddingBottom: '2px'}}>{props.data.category}</Text>
               <Text style={{paddingTop: '0'}} size="small">
-                {renderTags(props.data.tags)}
+                {renderTags(props.data.worked)}
               </Text>
               <div style={{width: '100px', margin: 'auto', postition: 'absolute', marginTop: 'calc(25% - 50px)'}}>
                 <Plus />
