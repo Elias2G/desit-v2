@@ -22,10 +22,10 @@ class About extends Component {
           <Row>
             <Column s={12}>
               <Title variant="h1" size="large" color="fontSecondary">
-                Wir unterstützen die weltweit führenden Unternehmen bei der Herstellung hochglanzpolierter Produkte.
+                Wir unterstützen Unternehmen bei der Entwicklung hochwertiger Produkte.
               </Title>
               <Text size="medium" color="fontSecondary" style={{'marginTop': '50px'}}>
-                Wir sind mehr als ein App-Entwicklungsshop. Wir sind ein voll integriertes Team aus Produktspezialisten, Strategen und Experten für Geschäftsentwicklung.
+                Wir sind mehr als eine Werbeagentur. Wir sind ein eingespieltes Team von Designern und Programmierern.
               </Text>
               <Container nop full>
                 <Button shadow="medium" toUppercase style={{'marginTop': '50px'}} variant="primary">jetzt durchstarten</Button>
@@ -41,11 +41,11 @@ class About extends Component {
                 Wir glauben, dass innovative Technologie Unternehmen verändern kann, wenn sie sorgfältig implementiert und für die Zielgruppen optimiert ist. Leider werden häufig Anwendungen entwickelt die der heutigen Zeit nicht entsprechen.
               </Title>
               <Text size="small">
-                Designintime wurde 19xx in Kärnten gegründet und bedient eine Reihe von Unternehmen in Kärnten und der Steiermark.
+                Designintime wurde 2011 in Kärnten gegründet und bedient eine Reihe von Unternehmen in Kärnten und der Steiermark.
+                Zuvor war designintime in Deutschland und die Chefin brachte Ihre Erfahrung mit nach Kärnten.
               </Text>
               <Text size="small">
-                Jeder Mitarbeiter bei designintime bringt seine eigene einzigartige Persöhnlichkeit und Perspektive in das Team mit ein.
-                Sei es eine Besessenheit für guten Kaffee, liebe zu memes, die Leidenschaft zu reisen oder einfach was anderes.
+                Jeder Mitarbeiter bei designintime bringt seine eigene einzigartige Persöhnlichkeit und Perspektive in das Team mit ein. Sei es eine Besessenheit für guten Kaffee, liebe zu memes, die Leidenschaft zu reisen oder einfach den Spaß an der Arbeit.
               </Text>
             </Column>
           </Row>

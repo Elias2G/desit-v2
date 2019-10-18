@@ -37,7 +37,8 @@ class MobileNav extends Component {
           'zIndex': '997',
           backgroundColor: 'white',
           borderTop: '1px solid #ebebeb',
-          width: '100%'
+          width: '100%',
+          paddingBottom: '5px'
         }
       }>
         <Container full nop >

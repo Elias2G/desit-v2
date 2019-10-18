@@ -6,10 +6,10 @@ export const Header = (props) => (
   <Container full nop>
     <Box
       width="100vw"
-      height="100vh"
+      height="100%"
       gradient
       withGradient="primary"
-      style={{'paddingTop': '10%'}}
+      style={{'paddingTop': '12%', minHeight: '100vh', paddingBottom: '2%'}}
     >
       <Container big>
         {props.children}
@@ -23,7 +23,7 @@ export const HeaderHalf = (props) => (
     <Box
       {...props}
       width="100vw"
-      style={{'paddingTop': '10%', minHeight: '50vh', paddingBottom: '2%'}}
+      style={{'paddingTop': '12%', minHeight: '50vh', paddingBottom: '2%'}}
     >
       <Container big>
         {props.children}

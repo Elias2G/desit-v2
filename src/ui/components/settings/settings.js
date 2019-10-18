@@ -129,7 +129,7 @@ export const font = {
     subtitle: '700',
     title: {
       h1: '500',
-      h2: '400',
+      h2: '500',
       h3: '500',
       h4: '500',
       h5: '500',

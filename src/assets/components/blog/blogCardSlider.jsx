@@ -41,7 +41,7 @@ export const BlogCardSlider = React.memo((props) => {
   return (
     <Card full nop>
 
-      <div style={{boxShadow: '2px 2px 8px rgba(0,0,0,0.4)', borderRadius: '8px', position: 'relative'}}>
+      <div style={{boxShadow: '2px 2px 8px rgba(0,0,0,0.4)', borderRadius: '8px', position: 'relative', backgroundColor: 'white'}}>
         {props.data.image.path === undefined
           ? null
           : <NavLink to={`/blog/${props.data.title_slug}`}>
@@ -65,7 +65,7 @@ export const BlogCardSlider = React.memo((props) => {
             von {writtenBy(props.user)} - {secondsToDate(props.data._created)}
           </Text>
 
-          
+
         </div>
       </div>
 

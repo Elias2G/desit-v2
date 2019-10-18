@@ -24,7 +24,7 @@ const Bar = styled.div`
     left: 0;
     bottom: 0;
     box-shadow: 0 0 4px rgba(0,0,0,0.2);
-
+    background-color: white;
     justify-content: space-between;
 
     ${props => props.open
@@ -34,7 +34,7 @@ const Bar = styled.div`
   }
 
   @media ${breakPoints.md} {
-    background: white;
+    background-color: white;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     border-radius: 16px;
     position: relative;
@@ -81,7 +81,7 @@ const Message = styled.div`
   background-color: #77dd77;
   top: 100px;
   left: 30px;
-  padding: 15px 15px;
+  padding: 0px 15px;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 `;
